@@ -6,8 +6,11 @@ import { AGENTS } from '../agents.js';
 import { facadeMaterial, roofMaterial, cloudTextureURL } from './textures.js';
 
 function rng(seed) { let s = seed; return () => (s = (s * 16807) % 2147483647) / 2147483647; }
-const BX = 24, BZ = 16, ST = 7; // block size x/z, street width
+const BX = 24, BZ = 16, ST = 7;
 export const SUN = [160, 60, 120];
+
+// blocks reserved for parks / ferris wheel
+const SPECIAL = new Set(['4,-1', '-3,-2', '2,-4', '-4,-3']);
 
 // ------------------------------------------------------------ city blocks
 function Building({ b }) {
@@ -40,7 +43,8 @@ function useCity() {
     const r = rng(1811);
     const out = [];
     for (let gx = -6; gx <= 6; gx++) for (let gz = -9; gz <= 2; gz++) {
-      if (Math.abs(gx) <= 1 && gz >= -1 && gz <= 1) continue; // the plaza around our tower
+      if (Math.abs(gx) <= 1 && gz >= -1 && gz <= 1) continue;
+      if (SPECIAL.has(`${gx},${gz}`)) continue;
       const cx = gx * (BX + ST), cz = gz * (BZ + ST);
       const dist = Math.hypot(cx, cz);
       const shadow = dist < 170;
@@ -55,7 +59,6 @@ function useCity() {
         let h = kind === 'brick' ? 12 + r() * 18 : 16 + r() * 28 + tall * tall * r() * 55;
         h = Math.min(h, 88);
         if (kind === 'stone' && h > 34) {
-          // pre-war setback tower: tiers
           const h1 = h * 0.5, h2 = h * 0.3, h3 = h * 0.2;
           out.push({ x, z: cz, w, d, h: h1, kind, seed, shadow });
           out.push({ x, z: cz, w: w * 0.78, d: d * 0.78, h: h2, y0: h1 + 0.7, kind, seed, shadow });
@@ -74,13 +77,12 @@ function Streets() {
   for (let gx = -6; gx <= 6; gx++) for (let gz = -9; gz <= 2; gz++) blocks.push([gx * (BX + ST), gz * (BZ + ST)]);
   return (
     <group>
-      <mesh rotation-x={-Math.PI / 2} position={[0, 0, -90]} receiveShadow><planeGeometry args={[460, 340]} /><meshStandardMaterial color="#45484c" roughness={0.95} /></mesh>
+      <mesh rotation-x={-Math.PI / 2} position={[0, 0, -90]} receiveShadow><planeGeometry args={[420, 290]} /><meshStandardMaterial color="#45484c" roughness={0.95} /></mesh>
       {blocks.map(([x, z], i) => (
         <mesh key={i} position={[x, 0.12, z]} receiveShadow><boxGeometry args={[BX + 2, 0.24, BZ + 2]} /><meshStandardMaterial color="#b9b4aa" roughness={0.95} /></mesh>
       ))}
-      {/* waterfront and river */}
-      <mesh position={[0, 0.3, 66]} receiveShadow><boxGeometry args={[460, 0.6, 8]} /><meshStandardMaterial color="#9c968b" /></mesh>
-      <mesh rotation-x={-Math.PI / 2} position={[0, -0.6, 300]}><planeGeometry args={[2000, 460]} /><meshStandardMaterial color="#4d6b7c" roughness={0.12} metalness={0.5} envMapIntensity={1.4} /></mesh>
+      <mesh position={[0, 0.3, 66]} receiveShadow><boxGeometry args={[420, 0.6, 8]} /><meshStandardMaterial color="#9c968b" /></mesh>
+      <mesh rotation-x={-Math.PI / 2} position={[0, -0.6, 160]}><planeGeometry args={[520, 180]} /><meshStandardMaterial color="#4d6b7c" roughness={0.12} metalness={0.5} envMapIntensity={1.4} /></mesh>
     </group>
   );
 }
@@ -118,12 +120,109 @@ function Cabs() {
   );
 }
 
+// ------------------------------------------------------------ city elements
+function Tree({ position, seed = 1 }) {
+  const r = useMemo(() => { const rr = rng(seed); rr(); return rr; }, [seed]);
+  const h = 7 + r() * 5;
+  const green = ['#2d6a2d', '#337733', '#245c24', '#3d8a3d'][seed % 4];
+  return (
+    <group position={position}>
+      <mesh position={[0, h * 0.3, 0]} castShadow>
+        <cylinderGeometry args={[0.35, 0.5, h * 0.6, 6]} />
+        <meshStandardMaterial color="#5a3d1e" roughness={1} />
+      </mesh>
+      <mesh position={[0, h * 0.65, 0]} castShadow>
+        <coneGeometry args={[2.6, h * 0.55, 7]} />
+        <meshStandardMaterial color={green} roughness={0.9} />
+      </mesh>
+      <mesh position={[0, h * 0.9, 0]} castShadow>
+        <coneGeometry args={[1.7, h * 0.35, 7]} />
+        <meshStandardMaterial color={green} roughness={0.9} />
+      </mesh>
+    </group>
+  );
+}
+
+function Park({ cx, cz }) {
+  const w = BX - 1, d = BZ - 1;
+  const treePositions = useMemo(() => {
+    const r = rng((Math.abs(cx * 7 + cz * 3) | 1));
+    return Array.from({ length: 10 }, () => [(r() - 0.5) * (w - 5), 0, (r() - 0.5) * (d - 4)]);
+  }, [cx, cz, w, d]);
+  return (
+    <group position={[cx, 0, cz]}>
+      <mesh position={[0, 0.15, 0]} receiveShadow>
+        <boxGeometry args={[w, 0.3, d]} />
+        <meshStandardMaterial color="#3f7a3f" roughness={1} />
+      </mesh>
+      <mesh position={[0, 0.2, 0]}>
+        <boxGeometry args={[2.5, 0.1, d]} />
+        <meshStandardMaterial color="#c5bba8" roughness={0.9} />
+      </mesh>
+      {treePositions.map((pos, i) => <Tree key={i} position={pos} seed={i * 97 + (Math.abs(cx) | 1)} />)}
+      {[[-w * 0.3, d * 0.3], [w * 0.3, -d * 0.3]].map(([bx, bz], i) => (
+        <mesh key={i} position={[bx, 0.6, bz]}>
+          <boxGeometry args={[3, 0.4, 1]} />
+          <meshStandardMaterial color="#8b6a4a" roughness={0.9} />
+        </mesh>
+      ))}
+    </group>
+  );
+}
+
+function FerrisWheel({ cx, cz }) {
+  const wheelRef = useRef();
+  const R = 18;
+  const N = 12;
+  useFrame((_, dt) => { if (wheelRef.current) wheelRef.current.rotation.z += dt * 0.22; });
+  const angles = useMemo(() => Array.from({ length: N }, (_, i) => (i / N) * Math.PI * 2), []);
+  const gondolaColors = ['#e74c3c', '#3498db', '#2ecc71', '#f39c12', '#9b59b6', '#1abc9c', '#e67e22', '#c0392b', '#2980b9', '#27ae60', '#d35400', '#8e44ad'];
+  return (
+    <group position={[cx, 0, cz]}>
+      {[-(R * 0.52), R * 0.52].map((x, i) => (
+        <mesh key={i} position={[x, (R + 1) / 2, 0]} rotation-z={i === 0 ? 0.11 : -0.11} castShadow>
+          <boxGeometry args={[1.4, R + 1, 1.4]} />
+          <meshStandardMaterial color="#4a4a5a" metalness={0.8} roughness={0.3} />
+        </mesh>
+      ))}
+      <mesh position={[0, 1, 0]}>
+        <boxGeometry args={[R * 1.1, 2, 3]} />
+        <meshStandardMaterial color="#4a4a5a" metalness={0.6} roughness={0.4} />
+      </mesh>
+      <group ref={wheelRef} position={[0, R + 2, 0]}>
+        <mesh>
+          <torusGeometry args={[R, 0.55, 8, 48]} />
+          <meshStandardMaterial color="#c0392b" metalness={0.8} roughness={0.2} />
+        </mesh>
+        <mesh>
+          <torusGeometry args={[R * 0.22, 0.4, 6, 20]} />
+          <meshStandardMaterial color="#c0392b" metalness={0.8} roughness={0.2} />
+        </mesh>
+        {angles.map((angle, i) => (
+          <mesh key={i} rotation-z={angle}>
+            <boxGeometry args={[0.3, R * 2, 0.3]} />
+            <meshStandardMaterial color="#aaaacc" metalness={0.6} roughness={0.4} />
+          </mesh>
+        ))}
+        {angles.map((angle, i) => (
+          <mesh key={i} position={[Math.cos(angle - Math.PI / 2) * R, Math.sin(angle - Math.PI / 2) * R, 0]}>
+            <boxGeometry args={[2.8, 2.2, 1.8]} />
+            <meshStandardMaterial color={gondolaColors[i]} roughness={0.6} />
+          </mesh>
+        ))}
+      </group>
+    </group>
+  );
+}
+
 // ------------------------------------------------------------ the research tower
-const TW = 26, PODIUM = 12, FLOOR_H = 11;
+const TW = 36, PODIUM = 16, FLOOR_H = 14;
 const TFLOORS = [['researcher'], ['kpi'], ['bull', 'bear'], ['skeptic'], ['editor'], ['genesis']];
 const TTOP = PODIUM + TFLOORS.length * FLOOR_H;
+// floor widths taper on upper section
+const FLOOR_WIDTHS = [TW, TW, TW, TW * 0.88, TW * 0.88, TW * 0.76];
 
-function TowerFloor({ i, agents, run }) {
+function TowerFloor({ i, agents, run, tw }) {
   const inner = useRef();
   const st = agents.map((a) => run.agents[a]?.status || 'idle');
   const working = st.includes('working');
@@ -138,18 +237,28 @@ function TowerFloor({ i, agents, run }) {
   const y = PODIUM + i * FLOOR_H;
   return (
     <group position={[0, y, 0]}>
-      <mesh position={[0, 0.6, 0]} castShadow receiveShadow><boxGeometry args={[TW + 0.3, 1.2, TW + 0.3]} /><meshStandardMaterial color="#d8dcdf" roughness={0.5} metalness={0.2} /></mesh>
-      {/* lit interior seen through the glass */}
-      <mesh position={[0, FLOOR_H / 2 + 0.6, 0]}><boxGeometry args={[TW - 1.5, FLOOR_H - 1.4, TW - 1.5]} /><meshStandardMaterial ref={inner} color="#2d3238" emissive="#ffe1b3" emissiveIntensity={0.15} roughness={1} /></mesh>
-      {/* curtain wall */}
-      <mesh position={[0, FLOOR_H / 2 + 0.6, 0]}>
-        <boxGeometry args={[TW, FLOOR_H - 1.2, TW]} />
-        <meshStandardMaterial color="#9fb6c8" roughness={0.04} metalness={0.85} transparent opacity={0.55} envMapIntensity={1.6} />
+      <mesh position={[0, 0.6, 0]} castShadow receiveShadow>
+        <boxGeometry args={[tw + 0.5, 1.2, tw + 0.5]} />
+        <meshStandardMaterial color="#c5cdd3" roughness={0.5} metalness={0.3} />
       </mesh>
-      {Array.from({ length: 9 }, (_, k) => (k - 4) * (TW / 8)).map((x, k) => (
+      {[3, 7, 11].map(fy => (
+        <mesh key={fy} position={[0, fy, 0]}>
+          <boxGeometry args={[tw + 1.4, 0.2, tw + 1.4]} />
+          <meshStandardMaterial color="#b5c0c8" roughness={0.3} metalness={0.65} />
+        </mesh>
+      ))}
+      <mesh position={[0, FLOOR_H / 2 + 0.6, 0]}>
+        <boxGeometry args={[tw - 1.5, FLOOR_H - 1.4, tw - 1.5]} />
+        <meshStandardMaterial ref={inner} color="#2d3238" emissive="#ffe1b3" emissiveIntensity={0.15} roughness={1} />
+      </mesh>
+      <mesh position={[0, FLOOR_H / 2 + 0.6, 0]}>
+        <boxGeometry args={[tw, FLOOR_H - 1.2, tw]} />
+        <meshStandardMaterial color="#8fb8d0" roughness={0.03} metalness={0.88} transparent opacity={0.5} envMapIntensity={1.8} />
+      </mesh>
+      {Array.from({ length: 11 }, (_, k) => (k - 5) * (tw / 9)).map((x, k) => (
         <React.Fragment key={k}>
-          <mesh position={[x, FLOOR_H / 2 + 0.6, TW / 2 + 0.05]}><boxGeometry args={[0.22, FLOOR_H - 1.2, 0.3]} /><meshStandardMaterial color="#c8ced3" metalness={0.6} roughness={0.35} /></mesh>
-          <mesh position={[TW / 2 + 0.05, FLOOR_H / 2 + 0.6, x]}><boxGeometry args={[0.3, FLOOR_H - 1.2, 0.22]} /><meshStandardMaterial color="#c8ced3" metalness={0.6} roughness={0.35} /></mesh>
+          <mesh position={[x, FLOOR_H / 2 + 0.6, tw / 2 + 0.05]}><boxGeometry args={[0.2, FLOOR_H - 1.2, 0.3]} /><meshStandardMaterial color="#bec8ce" metalness={0.65} roughness={0.3} /></mesh>
+          <mesh position={[tw / 2 + 0.05, FLOOR_H / 2 + 0.6, x]}><boxGeometry args={[0.3, FLOOR_H - 1.2, 0.2]} /><meshStandardMaterial color="#bec8ce" metalness={0.65} roughness={0.3} /></mesh>
         </React.Fragment>
       ))}
     </group>
@@ -164,20 +273,81 @@ function ResearchTower({ run, company, onEnter }) {
   return (
     <group onClick={(e) => { e.stopPropagation(); onEnter(); }} onPointerOver={(e) => { e.stopPropagation(); setHover(true); document.body.style.cursor = 'pointer'; }} onPointerOut={() => { setHover(false); document.body.style.cursor = ''; }}>
       {/* plaza */}
-      <mesh position={[0, 0.15, 0]} receiveShadow><boxGeometry args={[3 * (BX + ST) - ST, 0.3, 3 * (BZ + ST) - ST]} /><meshStandardMaterial color="#cfcac0" roughness={0.9} /></mesh>
-      {/* stone podium with lobby */}
-      <mesh position={[0, PODIUM / 2, 0]} castShadow receiveShadow material={[facadeMaterial('stone', 2, TW + 8, PODIUM), facadeMaterial('stone', 2, TW + 8, PODIUM), roofMaterial(), roofMaterial(), facadeMaterial('stone', 2, TW + 8, PODIUM), facadeMaterial('stone', 2, TW + 8, PODIUM)]}>
-        <boxGeometry args={[TW + 8, PODIUM, TW + 8]} />
+      <mesh position={[0, 0.15, 0]} receiveShadow>
+        <boxGeometry args={[3 * (BX + ST) - ST, 0.3, 3 * (BZ + ST) - ST]} />
+        <meshStandardMaterial color="#cfcac0" roughness={0.9} />
       </mesh>
-      <mesh position={[0, 3.2, (TW + 8) / 2 + 0.05]}><planeGeometry args={[12, 6.2]} /><meshStandardMaterial color="#1e2a33" emissive="#ffd9a0" emissiveIntensity={0.5} roughness={0.2} metalness={0.6} /></mesh>
-      {TFLOORS.map((a, i) => <TowerFloor key={i} i={i} agents={a} run={run} />)}
-      {/* crown */}
-      <mesh position={[0, TTOP + 0.8, 0]} castShadow><boxGeometry args={[TW + 0.4, 1.6, TW + 0.4]} /><meshStandardMaterial color="#d8dcdf" roughness={0.5} metalness={0.2} /></mesh>
-      <mesh position={[0, TTOP + 7, 0]} castShadow><boxGeometry args={[TW * 0.72, 11, TW * 0.72]} /><meshStandardMaterial color="#8ea4b5" roughness={0.08} metalness={0.85} envMapIntensity={1.6} /></mesh>
-      <mesh position={[0, TTOP + 15.5, 0]} castShadow><boxGeometry args={[TW * 0.42, 6, TW * 0.42]} /><meshStandardMaterial color="#8ea4b5" roughness={0.08} metalness={0.85} envMapIntensity={1.6} /></mesh>
-      <mesh position={[0, TTOP + 30, 0]} castShadow><cylinderGeometry args={[0.25, 1.1, 23, 10]} /><meshStandardMaterial color="#cfd5da" metalness={0.8} roughness={0.25} /></mesh>
-      <mesh position={[0, TTOP + 42, 0]}><sphereGeometry args={[0.7, 12, 10]} /><meshStandardMaterial ref={beacon} color="#ff3b30" emissive="#ff3b30" emissiveIntensity={2} /></mesh>
-      <Html position={[0, PODIUM + 2, (TW + 8) / 2]} center zIndexRange={[10, 0]}>
+      {/* plaza trees */}
+      {[[-30, -24], [30, -24], [-30, 24], [30, 24], [-30, 0], [30, 0]].map(([x, z], i) => (
+        <Tree key={i} position={[x, 0, z]} seed={i * 11 + 3} />
+      ))}
+      {/* plaza fountain */}
+      <group position={[0, 0, 28]}>
+        <mesh position={[0, 0.5, 0]}>
+          <cylinderGeometry args={[6, 7, 1, 20]} />
+          <meshStandardMaterial color="#c0b8a8" roughness={0.8} />
+        </mesh>
+        <mesh position={[0, 1.5, 0]}>
+          <cylinderGeometry args={[0.5, 0.5, 2, 10]} />
+          <meshStandardMaterial color="#a8a8a8" roughness={0.6} />
+        </mesh>
+        <mesh position={[0, 2.5, 0]}>
+          <sphereGeometry args={[1.2, 12, 8]} />
+          <meshStandardMaterial color="#6ab8d8" roughness={0.1} metalness={0.3} transparent opacity={0.75} />
+        </mesh>
+      </group>
+      {/* stone podium */}
+      <mesh position={[0, PODIUM / 2, 0]} castShadow receiveShadow material={[facadeMaterial('stone', 2, TW + 10, PODIUM), facadeMaterial('stone', 2, TW + 10, PODIUM), roofMaterial(), roofMaterial(), facadeMaterial('stone', 2, TW + 10, PODIUM), facadeMaterial('stone', 2, TW + 10, PODIUM)]}>
+        <boxGeometry args={[TW + 10, PODIUM, TW + 10]} />
+      </mesh>
+      {/* lobby entrance */}
+      <mesh position={[0, 3.2, (TW + 10) / 2 + 0.05]}>
+        <planeGeometry args={[14, 6.4]} />
+        <meshStandardMaterial color="#1e2a33" emissive="#ffd9a0" emissiveIntensity={0.5} roughness={0.2} metalness={0.6} />
+      </mesh>
+      {/* podium top cap */}
+      <mesh position={[0, PODIUM + 0.5, 0]}>
+        <boxGeometry args={[TW + 11, 1, TW + 11]} />
+        <meshStandardMaterial color="#b8c0c8" roughness={0.4} metalness={0.4} />
+      </mesh>
+      {/* tower floors with tapering */}
+      {TFLOORS.map((a, i) => <TowerFloor key={i} i={i} agents={a} run={run} tw={FLOOR_WIDTHS[i]} />)}
+      {/* crown cap band */}
+      <mesh position={[0, TTOP + 1, 0]} castShadow>
+        <boxGeometry args={[TW * 0.76 + 1.5, 2, TW * 0.76 + 1.5]} />
+        <meshStandardMaterial color="#bec8ce" roughness={0.4} metalness={0.5} />
+      </mesh>
+      {/* crown setback 1 */}
+      <mesh position={[0, TTOP + 10, 0]} castShadow>
+        <boxGeometry args={[TW * 0.65, 16, TW * 0.65]} />
+        <meshStandardMaterial color="#8fb8d0" roughness={0.04} metalness={0.9} transparent opacity={0.72} envMapIntensity={2.2} />
+      </mesh>
+      {/* crown setback 2 */}
+      <mesh position={[0, TTOP + 23.5, 0]} castShadow>
+        <boxGeometry args={[TW * 0.44, 11, TW * 0.44]} />
+        <meshStandardMaterial color="#8fb8d0" roughness={0.04} metalness={0.9} transparent opacity={0.72} envMapIntensity={2.2} />
+      </mesh>
+      {/* crown setback 3 */}
+      <mesh position={[0, TTOP + 33, 0]} castShadow>
+        <boxGeometry args={[TW * 0.26, 8, TW * 0.26]} />
+        <meshStandardMaterial color="#8fb8d0" roughness={0.04} metalness={0.9} transparent opacity={0.72} envMapIntensity={2.2} />
+      </mesh>
+      {/* observation deck ring */}
+      <mesh position={[0, TTOP + 39, 0]} castShadow>
+        <cylinderGeometry args={[TW * 0.22, TW * 0.22, 2.5, 20]} />
+        <meshStandardMaterial color="#c5cdd5" roughness={0.25} metalness={0.75} />
+      </mesh>
+      {/* spire */}
+      <mesh position={[0, TTOP + 57, 0]} castShadow>
+        <cylinderGeometry args={[0.2, 1.5, 34, 10]} />
+        <meshStandardMaterial color="#ced6de" metalness={0.88} roughness={0.18} />
+      </mesh>
+      {/* beacon */}
+      <mesh position={[0, TTOP + 75, 0]}>
+        <sphereGeometry args={[0.75, 12, 10]} />
+        <meshStandardMaterial ref={beacon} color="#ff3b30" emissive="#ff3b30" emissiveIntensity={2} />
+      </mesh>
+      <Html position={[0, PODIUM + 2, (TW + 10) / 2]} center zIndexRange={[10, 0]}>
         <button className={`entry ${hover ? 'hover' : ''}`} onClick={(e) => { e.stopPropagation(); onEnter(); }} onPointerDown={(e) => e.stopPropagation()}>
           <b>{company?.name}</b>
           <span>{running ? 'The team is working. Go inside' : 'Go inside'}</span>
@@ -191,7 +361,7 @@ function AimOnce({ controls }) {
   const done = useRef(false);
   useFrame(() => {
     if (done.current || !controls.current) return;
-    controls.current.setLookAt(150, 62, 210, 22, 58, 0, false);
+    controls.current.setLookAt(150, 70, 220, 0, 60, 0, false);
     done.current = true;
   });
   return null;
@@ -202,7 +372,7 @@ export function SkyAndLight({ shadowSize = 220 }) {
   return (
     <>
       <Sky distance={4500} sunPosition={SUN} turbidity={4.5} rayleigh={1.1} mieCoefficient={0.004} mieDirectionalG={0.86} />
-      <fog attach="fog" args={['#c9d6e0', 260, 820]} />
+      <fog attach="fog" args={['#c9d6e0', 260, 480]} />
       <hemisphereLight args={['#cfe2f5', '#6d6a63', 0.9]} />
       <directionalLight position={SUN} intensity={2.6} color="#fff0d8" castShadow
         shadow-mapSize={[2048, 2048]} shadow-camera-left={-shadowSize} shadow-camera-right={shadowSize} shadow-camera-top={shadowSize} shadow-camera-bottom={-shadowSize} shadow-camera-far={700} shadow-bias={-0.0005} />
@@ -227,12 +397,16 @@ export default function Exterior({ run, company, onEnter }) {
   const controls = useRef();
   const city = useCity();
   return (
-    <Canvas shadows dpr={[1, 2]} camera={{ position: [150, 62, 210], fov: 36, near: 1, far: 5000 }} gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 0.9 }}>
+    <Canvas shadows dpr={[1, 2]} camera={{ position: [150, 70, 220], fov: 36, near: 1, far: 5000 }} gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 0.9 }}>
       <SkyAndLight />
       <Streets />
       {city.map((b, i) => <Building key={i} b={b} />)}
       <Cabs />
       <ResearchTower run={run} company={company} onEnter={onEnter} />
+      <Park cx={-93} cz={-46} />
+      <Park cx={62} cz={-92} />
+      <Park cx={-124} cz={-69} />
+      <FerrisWheel cx={124} cz={-23} />
       <AimOnce controls={controls} />
       <CameraControls ref={controls} makeDefault minDistance={60} maxDistance={420} minPolarAngle={0.3} maxPolarAngle={1.45} dollySpeed={0.5} />
     </Canvas>
