@@ -147,6 +147,7 @@ export default function TowerPanel({ universe, ticker, asOf, setAsOf, run: rawRu
             {onClose && <button className="close" onClick={onClose} aria-label="Close">×</button>}
           </div>
           <div className="plaque-meta">{ticker}{c?.exchange ? `, ${c.exchange}` : ''}</div>
+          {c?.sector && <div className="plaque-index">Candidate for <b>{c.sector}</b></div>}
           {c?.description && <p className="plaque-desc">{c.description}</p>}
         </header>
 
@@ -159,7 +160,7 @@ export default function TowerPanel({ universe, ticker, asOf, setAsOf, run: rawRu
             <span>Data as of</span>
             <select value={asOf} onChange={(e) => setAsOf(e.target.value)} disabled={running}>
               <option value="">Today</option>
-              {periods.slice(0, -1).map((p) => <option key={p} value={p}>{p.replace('-', ' ')}</option>)}
+              {periods.filter((p) => /^\d{4}-Q\d$/.test(p)).slice(0, -1).map((p) => <option key={p} value={p}>{p.replace('-', ' ')}</option>)}
             </select>
           </label>
         </div>
@@ -175,7 +176,8 @@ export default function TowerPanel({ universe, ticker, asOf, setAsOf, run: rawRu
 
         <div className="gauge" aria-label={`Conviction ${conv ?? 'not set'}`}>
           <div className="gauge-bar"><i style={{ width: `${conv ?? 0}%`, background: stanceColor(conv) }} /></div>
-          <div className="gauge-text">{conv != null ? <><b>{conv}</b> conviction, {rep.stance.toLowerCase()}</> : running ? 'The team is researching' : 'Not researched yet'}</div>
+          {rep?.decision && <div className={`decision d-${rep.decision.call}`}>{rep.decision.label}</div>}
+          <div className="gauge-text">{conv != null ? <><b>{conv}</b> conviction from fact-checked evidence</> : running ? 'The team is researching' : 'Not researched yet'}</div>
         </div>
 
         <nav className="directory" aria-label="Floors">

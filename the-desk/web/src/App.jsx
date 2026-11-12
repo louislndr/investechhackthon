@@ -1,9 +1,12 @@
 import React, { useCallback, useEffect, useReducer, useRef, useState } from 'react';
-import Exterior from './components/Exterior.jsx';
+import Exterior, { TFLOORS, busyFloor } from './components/Exterior.jsx';
+import { AGENTS } from './agents.js';
 import Office from './components/Office.jsx';
 import TowerPanel from './components/TowerPanel.jsx';
 import Report from './components/Report.jsx';
 import Stress from './components/Stress.jsx';
+import IndexBoard from './components/IndexBoard.jsx';
+import OutsideCard from './components/OutsideCard.jsx';
 import { TOWER_AGENTS } from './agents.js';
 
 const blankAgents = () => Object.fromEntries([...TOWER_AGENTS, 'vault'].map((a) => [a, { status: 'idle', note: '', stream: '', logs: [], result: null }]));
@@ -47,7 +50,7 @@ export default function App() {
   const [modal, setModal] = useState(null); // { type: 'report'|'stress', key, ticker }
   const [toast, setToast] = useState('');
   const [floor, setFloor] = useState('genesis');
-  const [inside, setInside] = useState(false);
+  const [inside, setInside] = useState(null); // floor index, or null when outside
   const sources = useRef({});
   const fileRef = useRef(null);
 
@@ -77,7 +80,7 @@ export default function App() {
       if (e.t === 'done' || e.t === 'error') {
         es.close(); delete sources.current[key];
         if (e.t === 'error') setToast(`${ticker}: ${e.message}`);
-        if (e.t === 'done') setUniverse((u) => u && !asOf ? { ...u, cached: { ...u.cached, [ticker]: { conviction: e.report.conviction, stance: e.report.stance } } } : u);
+        if (e.t === 'done') setUniverse((u) => u && !asOf ? { ...u, cached: { ...u.cached, [ticker]: { conviction: e.report.conviction, stance: e.report.stance, decision: e.report.decision, topReason: e.report.topReason } } } : u);
         resolve(e);
       }
     };
@@ -112,7 +115,7 @@ export default function App() {
 
   if (!universe) return <div className="boot"><div className="citysign"><div className="citysign-name">The Desk</div><div className="citysign-sub">{toast || 'Loading the city'}</div></div></div>;
 
-  const ticker = view.ticker && universe.companies.some((c) => c.ticker === view.ticker) ? view.ticker : universe.companies[0]?.ticker;
+  const ticker = view.ticker && universe.companies.some((c) => c.ticker === view.ticker) ? view.ticker : universe.indexes?.[0]?.tickers?.[0] || universe.companies[0]?.ticker;
   const asOf = view.asOf || '';
   const run = runs[runKey(ticker, asOf)] || blankRun();
   const company = universe.companies.find((c) => c.ticker === ticker);
@@ -121,34 +124,56 @@ export default function App() {
   return (
     <div className="app">
       <div className="stage">
-        {inside
-          ? <Office run={run} picked={floor} onPick={setFloor} />
-          : <Exterior run={run} company={company} onEnter={() => setInside(true)} />}
+        {inside != null
+          ? <Office run={run} floor={inside} picked={floor} onPick={setFloor} />
+          : <Exterior run={run} company={company} onEnter={(i) => { setInside(i); setFloor(TFLOORS[i][0]); }} />}
       </div>
 
       <header className="hud">
         <div className="brand">
           <div className="brand-name">The Desk</div>
-          <div className="brand-sub">{inside ? 'Click any computer to see what that analyst is working on.' : 'One stock. Seven AI analysts. Every number sourced.'}</div>
+          <div className="brand-sub">{inside != null ? 'Click the computer to see what they are working on.' : 'Which Canadian companies belong in Onesheet\'s indexes, and why.'}</div>
         </div>
         <label className="stockpick">
           <span>Stock</span>
           <select value={ticker} onChange={(e) => pickStock(e.target.value)} disabled={run.status === 'running'}>
-            {universe.companies.map((c) => <option key={c.ticker} value={c.ticker}>{c.name} ({c.ticker})</option>)}
+            {universe.indexes?.length
+              ? universe.indexes.map((ix) => (
+                <optgroup key={ix.key} label={ix.name}>
+                  {ix.tickers.map((t) => { const c = universe.companies.find((x) => x.ticker === t); return <option key={t} value={t}>{c.name} ({t})</option>; })}
+                </optgroup>))
+              : universe.companies.map((c) => <option key={c.ticker} value={c.ticker}>{c.name} ({c.ticker})</option>)}
           </select>
         </label>
-        <button className="btn go" onClick={() => setInside((v) => !v)}>{inside ? 'Back outside' : 'Go inside the tower'}</button>
+        {inside == null
+          ? <button className="btn go" onClick={() => { const i = busyFloor(run); setInside(i); setFloor(TFLOORS[i][0]); }}>Go inside the tower</button>
+          : (
+            <div className="elevator">
+              <button className="btn" disabled={inside >= TFLOORS.length - 1} onClick={() => { setInside(inside + 1); setFloor(TFLOORS[inside + 1][0]); }} aria-label="Up a floor">▲</button>
+              <span className="elevator-floor"><b>Floor {inside + 1}</b> {TFLOORS[inside].map((a) => AGENTS[a].name).join(' and ')}</span>
+              <button className="btn" disabled={inside <= 0} onClick={() => { setInside(inside - 1); setFloor(TFLOORS[inside - 1][0]); }} aria-label="Down a floor">▼</button>
+              <button className="btn go" onClick={() => setInside(null)}>Back outside</button>
+            </div>
+          )}
+        {universe.indexes?.length > 0 && <button className="btn" onClick={() => setModal({ type: 'board' })}>Index board</button>}
         <button className="btn quiet" onClick={() => fileRef.current?.click()}>Load Onesheet data</button>
-        {!universe.demo && <button className="btn quiet" onClick={resetData}>Demo data</button>}
         <input ref={fileRef} type="file" accept=".json,.csv" multiple hidden onChange={(e) => e.target.files?.length && upload(e.target.files)} />
       </header>
 
       <div className="hud-notes">
         <span className="plate">{universe.live ? `Live AI agents (${universe.model})` : universe.static ? 'Offline agents, running in your browser' : 'Offline agents, no API key set'}</span>
-        {universe.demo && <span className="plate">Demo data, fictional companies</span>}
+        <span className="plate">Data: Onesheet company profiles</span>
       </div>
 
-      {company && (
+      {company && inside == null && (
+        <OutsideCard universe={universe} company={company} run={run}
+          onRun={(opts) => startRun(ticker, { asOf, ...opts })}
+          onReport={() => setModal({ type: 'report', key: runKey(ticker, asOf) })}
+          onStress={() => setModal({ type: 'stress', ticker })}
+          onEnter={() => { const i = busyFloor(run); setInside(i); setFloor(TFLOORS[i][0]); }}
+          cached={!!universe.cached?.[ticker]} />
+      )}
+      {company && inside != null && (
         <TowerPanel
           universe={universe}
           ticker={ticker}
@@ -165,6 +190,11 @@ export default function App() {
       )}
       {modal?.type === 'report' && runs[modal.key]?.report && <Report report={runs[modal.key].report} onClose={() => setModal(null)} />}
       {modal?.type === 'stress' && <Stress ticker={modal.ticker} company={universe.companies.find((c) => c.ticker === modal.ticker)} onClose={() => setModal(null)} />}
+      {modal?.type === 'board' && (
+        <IndexBoard universe={universe} runs={runs} onClose={() => setModal(null)}
+          onOpen={(t) => { setModal(null); pickStock(t); }}
+          onRunIndex={async (tickers) => { for (const t of tickers) await startRun(t); setToast('Index research finished.'); }} />
+      )}
       {toast && <div className="toast">{toast}</div>}
     </div>
   );

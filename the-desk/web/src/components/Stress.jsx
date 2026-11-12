@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { FactsContext, ClaimCard } from './Segments.jsx';
 
-const EXAMPLE = (name) => `${name} is a buy. Occupancy is rock solid, the dividend is safe, and rent growth is accelerating.`;
+const EXAMPLE = (name, sector = '') => /acquirer/i.test(sector)
+  ? `${name} belongs in the index. It keeps buying businesses, revenue is growing fast and it throws off plenty of free cash flow.`
+  : `${name} belongs in the index. Occupancy is rock solid, the payout is safe and same-property NOI growth is accelerating.`;
 
 export default function Stress({ ticker, company, onClose }) {
-  const [thesis, setThesis] = useState(EXAMPLE(company?.name?.split(' ')[0] || ticker));
+  const [thesis, setThesis] = useState(EXAMPLE(company?.name?.split(' ')[0] || ticker, company?.sector));
   const [res, setRes] = useState(null);
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState('');

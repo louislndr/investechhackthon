@@ -27,11 +27,12 @@ export default function Report({ report: r, onClose }) {
             <div>
               <div className="sh-kicker">The Desk research note{r.asOf ? `, data as of ${r.asOf.replace('-', ' ')}` : ''}</div>
               <h1>{r.company.name}</h1><div className="sh-ticker">{r.ticker}{r.company.exchange ? `, ${r.company.exchange}` : ''}</div>
+              {r.index && <div className="sh-index">Candidate for Onesheet's <b>{r.index.name}</b> index</div>}
               <div className="sh-headline">{r.headline}</div>
             </div>
             <div className="sh-conv" style={{ '--c': stanceColor(r.conviction) }}>
               <div className="ring" style={{ background: `conic-gradient(var(--c) ${r.conviction * 3.6}deg, #e5e7eb 0)` }}><span>{r.conviction}</span></div>
-              <div className="sh-stance">{r.stance}</div>
+              <div className="sh-stance">{r.decision?.label || r.stance}</div>
               <div className="sh-small">conviction from fact-checked evidence</div>
             </div>
           </header>
@@ -45,7 +46,8 @@ export default function Report({ report: r, onClose }) {
               <p className="sh-muted">{r.howItMakesMoney}</p>
             </section>
             <section>
-              <h2>Price</h2>
+              {r.priceSeries?.length > 0 ? <h2>Price</h2> : <h2>Recent moves</h2>}
+              {!r.priceSeries?.length && <ul className="sh-events">{(r.events || []).slice(0, 4).map((e, i) => <li key={i}><b>{e.date}</b> {e.summary}</li>)}</ul>}
               <PriceChart series={r.priceSeries} w={360} h={96} color={stanceColor(r.conviction)} />
               <div className="sh-pxrow">
                 {r.price?.lastId && <span>Last {ref(r.price.lastId)}</span>}

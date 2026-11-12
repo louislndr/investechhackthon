@@ -3,12 +3,13 @@
 import { loadFromFiles, asOf } from '../../../server/data/loader.js';
 import { buildFactSheet } from '../../../server/analytics.js';
 import { runDesk, stressTest } from '../../../server/agents/pipeline.js';
-import companiesJson from '../../../server/data/demo/companies.json?raw';
-import pricesCsv from '../../../server/data/demo/prices.csv?raw';
+import { INDEXES } from '../../../server/data/onesheet.js';
 
-const DEMO = [{ name: 'companies.json', content: companiesJson }, { name: 'prices.csv', content: pricesCsv }];
+// The 10 Onesheet candidate profiles ship with the page.
+const raw = import.meta.glob('../../../server/data/onesheet/*.json', { query: '?raw', import: 'default', eager: true });
+const DEMO = Object.entries(raw).map(([path, content]) => ({ name: path.split('/').pop(), content }));
 let universe = loadFromFiles(DEMO);
-let demo = true;
+let demo = false;
 const cache = new Map(); // key -> { report, events }
 const running = new Set();
 const ck = (t, a) => `${t}@${a || ''}`;
@@ -17,11 +18,13 @@ const json = (body, status = 200) => new Response(JSON.stringify(body), { status
 
 function universeInfo() {
   const cached = {};
-  for (const c of universe.companies) { const r = cache.get(ck(c.ticker)); if (r) cached[c.ticker] = { conviction: r.report.conviction, stance: r.report.stance }; }
+  for (const c of universe.companies) { const r = cache.get(ck(c.ticker)); if (r) cached[c.ticker] = { conviction: r.report.conviction, stance: r.report.stance, decision: r.report.decision, topReason: r.report.topReason }; }
   return {
     sector: universe.sector, companies: universe.companies, live: false, model: null, demo, dataDir: demo ? 'demo' : 'uploaded',
     files: universe.files, factCount: universe.facts.length, kpis: Object.entries(universe.kpiMeta).map(([key, m]) => ({ key, ...m })),
     cached, periods: [...new Set(universe.facts.map((f) => f.period))], static: true,
+    hasPrices: Object.keys(universe.prices).length > 0,
+    indexes: Object.entries(INDEXES).map(([key, ix]) => ({ key, name: ix.name, thesis: ix.thesis, tickers: ix.tickers.filter((t) => universe.companies.some((c) => c.ticker === t)) })).filter((ix) => ix.tickers.length),
   };
 }
 
@@ -45,7 +48,7 @@ window.fetch = async (input, init = {}) => {
       universe = next; demo = false; cache.clear();
       return json({ ok: true, companies: universe.companies.length, facts: universe.facts.length });
     }
-    if (p === '/api/data/reset') { universe = loadFromFiles(DEMO); demo = true; cache.clear(); return json({ ok: true }); }
+    if (p === '/api/data/reset') { universe = loadFromFiles(DEMO); demo = false; cache.clear(); return json({ ok: true }); }
     return json({ error: 'Not found' }, 404);
   } catch (e) { return json({ error: e.message }, 400); }
 };

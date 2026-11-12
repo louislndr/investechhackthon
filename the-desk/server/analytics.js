@@ -8,6 +8,7 @@ export function fmt(value, unit) {
   const d = abs >= 100 ? 0 : abs >= 10 ? 1 : abs >= 1 ? 2 : 3;
   const n = value.toLocaleString('en-CA', { minimumFractionDigits: unit === '%' ? 1 : 0, maximumFractionDigits: unit === '%' ? 1 : d });
   if (unit === '%') return `${n}%`;
+  if (unit === '$' && abs >= 1e6) return `${value < 0 ? '-' : ''}$${abs >= 1e9 ? (abs / 1e9).toFixed(2) + 'B' : (abs / 1e6).toFixed(abs >= 1e8 ? 0 : 1) + 'M'}`;
   if (unit === '$') return `${value < 0 ? '-' : ''}$${Math.abs(value).toLocaleString('en-CA', { maximumFractionDigits: abs < 10 ? 3 : 0, minimumFractionDigits: abs < 10 ? 2 : 0 })}`;
   if (unit === 'x') return `${value.toFixed(1)}x`;
   return n;
@@ -37,7 +38,8 @@ export function buildFactSheet(universe, ticker) {
   let n = 0;
   const add = (f) => { const id = `F${++n}`; const full = { id, ticker, ...f }; facts.push(full); return full; };
 
-  const peers = universe.companies.map((c) => c.ticker);
+  const me = universe.companies.find((c) => c.ticker === ticker);
+  const peers = universe.companies.filter((c) => !me?.sector || c.sector === me.sector).map((c) => c.ticker);
   const keys = [...new Set(universe.facts.filter((f) => f.ticker === ticker).map((f) => f.key))];
 
   for (const key of keys) {
@@ -71,7 +73,7 @@ export function buildFactSheet(universe, ticker) {
       const rank = sorted.findIndex((x) => x.t === ticker) + 1;
       const vals = peerVals.map((x) => x.v).sort((a, b) => a - b);
       const med = vals.length % 2 ? vals[(vals.length - 1) / 2] : (vals[vals.length / 2 - 1] + vals[vals.length / 2]) / 2;
-      const r = add({ key, kind: 'rank', label: `${meta.label}: rank among peers`, period: L.period, value: rank, display: `#${rank} of ${peerVals.length}`, source: { type: 'Computed', doc: `Peer ranking, latest reported (${peerVals.length} companies)`, note: sorted.map((x, i) => `${i + 1}. ${x.t} ${fmt(x.v, meta.unit)}`).join(' · '), url: '' }, desc: `Where it ranks on ${meta.label} (1 = best)` });
+      const r = add({ key, kind: 'rank', label: `${meta.label}: rank among the ${peerVals.length} candidates`, period: L.period, value: rank, display: `#${rank} of ${peerVals.length}`, source: { type: 'Computed', doc: `Peer ranking, latest reported (${peerVals.length} companies)`, note: sorted.map((x, i) => `${i + 1}. ${x.t} ${fmt(x.v, meta.unit)}`).join(' · '), url: '' }, desc: `Where it ranks on ${meta.label} (1 = best)` });
       const m = add({ key, kind: 'median', label: `${meta.label}: peer median`, period: L.period, value: med, display: fmt(med, meta.unit), source: { type: 'Computed', doc: `Median of ${peerVals.length} peers, latest reported`, note: '', url: '' }, desc: `Peer median ${meta.label}` });
       Object.assign(sig, { rankId: r.id, rank, peerCount: peerVals.length, medianId: m.id, median: med, peers: sorted.map((x) => ({ ticker: x.t, value: x.v, display: fmt(x.v, meta.unit) })) });
       sig.vsMedian = L.value === med ? 0 : (L.value > med) === meta.higher_is_better ? 1 : -1;

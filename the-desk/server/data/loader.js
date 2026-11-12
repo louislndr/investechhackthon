@@ -6,6 +6,7 @@
 //   prices:    { ticker: [{ date, close }] }   (sorted oldest -> newest)
 import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
 import { join, extname } from 'node:path';
+import { isOnesheetProfile, convertProfile } from './onesheet.js';
 
 // ---------- helpers ----------
 const SYN = {
@@ -135,6 +136,8 @@ function upsertCompany(U, c) {
   const t = String(c.ticker).trim();
   const prev = U.companies.get(t) || { ticker: t, name: t, sector: '', exchange: '', description: '' };
   for (const k of ['name', 'sector', 'exchange', 'description']) if (c[k]) prev[k] = String(c[k]);
+  if (c.indexKey) prev.indexKey = c.indexKey;
+  if (Array.isArray(c.events)) prev.events = c.events;
   U.companies.set(t, prev);
 }
 function addMeta(U, key, meta = {}) {
@@ -225,6 +228,13 @@ function ingestRow(U, r) {
   }
 }
 function ingestJSON(U, j) {
+  if (isOnesheetProfile(j)) {
+    const { company, kpis, meta } = convertProfile(j);
+    upsertCompany(U, company);
+    for (const [k, m] of Object.entries(meta)) addMeta(U, k, m);
+    for (const [k, series] of Object.entries(kpis)) for (const pt of series) addFact(U, { ticker: company.ticker, key: k, period: pt.period, value: pt.value, source: pt.source, unit: meta[k].unit });
+    return;
+  }
   if (Array.isArray(j)) { for (const r of j) if (r && typeof r === 'object') (r.kpis && pick(r, 'ticker') ? ingestNested(U, { companies: [r] }) : ingestRow(U, r)); return; }
   if (j && Array.isArray(j.companies)) { ingestNested(U, j); return; }
   if (j && typeof j === 'object') {

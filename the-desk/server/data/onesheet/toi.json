@@ -1,0 +1,5464 @@
+{
+  "schemaVersion": "company-profile-consumer-v2",
+  "companyKey": "toi",
+  "sourceHash": "1fa95b90e6e11cc4485a1868de882b14cf7c87f1c10a0144de7dd5c2628c2b6a",
+  "sourceWatermark": "2026-11-11T04:26:44.230730+00:00",
+  "builtAt": "2026-11-11T12:34:25.239487+00:00",
+  "document": {
+    "schemaVersion": "company-profile-consumer-v2",
+    "profile": {
+      "identity": {
+        "key": "toi",
+        "name": "Topicus.com Inc.",
+        "cik": null,
+        "sedarProfile": "000050502",
+        "listings": [
+          {
+            "symbol": "TOI",
+            "exchange": "TSXV",
+            "market": "CA"
+          }
+        ],
+        "fiscalYearEnd": "12-31",
+        "reportingCurrency": "EUR"
+      },
+      "overview": {
+        "description": "Topicus.com acquires, manages and builds vertical market software businesses, mainly in Europe. It is controlled by Constellation Software and reports one segment.",
+        "entityCounts": {
+          "business-line": 4,
+          "company": 1,
+          "other": 2,
+          "partnership": 1,
+          "subsidiary": 1
+        },
+        "slots": [
+          {
+            "layer": "core",
+            "key": "revenue",
+            "title": "Revenue",
+            "status": "filled",
+            "quarters": 12,
+            "years": 2,
+            "balances": 0
+          },
+          {
+            "layer": "core",
+            "key": "gross-margin",
+            "title": "Gross profit",
+            "status": "empty",
+            "quarters": 0,
+            "years": 0,
+            "balances": 0
+          },
+          {
+            "layer": "core",
+            "key": "operating-income",
+            "title": "Operating income",
+            "status": "partial",
+            "quarters": 2,
+            "years": 0,
+            "balances": 0
+          },
+          {
+            "layer": "core",
+            "key": "ebitda",
+            "title": "EBITDA",
+            "status": "empty",
+            "quarters": 0,
+            "years": 0,
+            "balances": 0
+          },
+          {
+            "layer": "core",
+            "key": "net-income",
+            "title": "Net income",
+            "status": "filled",
+            "quarters": 12,
+            "years": 2,
+            "balances": 0
+          },
+          {
+            "layer": "core",
+            "key": "eps",
+            "title": "EPS",
+            "status": "filled",
+            "quarters": 8,
+            "years": 2,
+            "balances": 0
+          },
+          {
+            "layer": "core",
+            "key": "operating-cash-flow",
+            "title": "Operating cash flow",
+            "status": "filled",
+            "quarters": 8,
+            "years": 2,
+            "balances": 0
+          },
+          {
+            "layer": "core",
+            "key": "capex",
+            "title": "Capex",
+            "status": "filled",
+            "quarters": 8,
+            "years": 2,
+            "balances": 0
+          },
+          {
+            "layer": "core",
+            "key": "free-cash-flow",
+            "title": "Free cash flow",
+            "status": "filled",
+            "quarters": 12,
+            "years": 2,
+            "balances": 0
+          },
+          {
+            "layer": "core",
+            "key": "cash",
+            "title": "Cash",
+            "status": "filled",
+            "quarters": 0,
+            "years": 0,
+            "balances": 8
+          },
+          {
+            "layer": "core",
+            "key": "debt",
+            "title": "Debt",
+            "status": "filled",
+            "quarters": 0,
+            "years": 0,
+            "balances": 4
+          }
+        ]
+      },
+      "entities": [
+        {
+          "name": "Topicus.com Inc.",
+          "kind": "company",
+          "aliases": [],
+          "description": "Topicus.com acquires, manages and builds vertical market software businesses, mainly in Europe. It is controlled by Constellation Software and reports one segment.",
+          "segmentBasis": null,
+          "path": [
+            {
+              "name": "Topicus.com Inc.",
+              "kind": "company"
+            }
+          ]
+        },
+        {
+          "name": "Cipal Schaubroeck NV",
+          "kind": "subsidiary",
+          "aliases": [],
+          "description": null,
+          "segmentBasis": null,
+          "path": [
+            {
+              "name": "Cipal Schaubroeck NV",
+              "kind": "subsidiary"
+            }
+          ]
+        },
+        {
+          "name": "Hardware and other",
+          "kind": "business-line",
+          "aliases": [],
+          "description": "Resale of third-party hardware within customer solutions, and customized hardware assembled internally.",
+          "segmentBasis": null,
+          "path": [
+            {
+              "name": "Hardware and other",
+              "kind": "business-line"
+            }
+          ]
+        },
+        {
+          "name": "Licenses",
+          "kind": "business-line",
+          "aliases": [],
+          "description": "Fees for software licensed under multiple-year or perpetual arrangements.",
+          "segmentBasis": null,
+          "path": [
+            {
+              "name": "Licenses",
+              "kind": "business-line"
+            }
+          ]
+        },
+        {
+          "name": "Maintenance and other recurring",
+          "kind": "business-line",
+          "aliases": [],
+          "description": "Customer support fees after delivery, plus recurring fees from software as a service, subscriptions, transactions and hosted products.",
+          "segmentBasis": null,
+          "path": [
+            {
+              "name": "Maintenance and other recurring",
+              "kind": "business-line"
+            }
+          ]
+        },
+        {
+          "name": "Professional services",
+          "kind": "business-line",
+          "aliases": [],
+          "description": "Fees for implementation and integration, customized programming, product training and consulting.",
+          "segmentBasis": null,
+          "path": [
+            {
+              "name": "Professional services",
+              "kind": "business-line"
+            }
+          ]
+        },
+        {
+          "name": "Asseco",
+          "kind": "other",
+          "aliases": [],
+          "description": null,
+          "segmentBasis": null,
+          "path": [
+            {
+              "name": "Topicus.com Inc.",
+              "kind": "company"
+            },
+            {
+              "name": "Asseco",
+              "kind": "other"
+            }
+          ]
+        },
+        {
+          "name": "Asseco Poland S.A.",
+          "kind": "other",
+          "aliases": [],
+          "description": null,
+          "segmentBasis": null,
+          "path": [
+            {
+              "name": "Asseco Poland S.A.",
+              "kind": "other"
+            }
+          ]
+        },
+        {
+          "name": "Remmicom JV NV",
+          "kind": "partnership",
+          "aliases": [],
+          "description": null,
+          "segmentBasis": null,
+          "path": [
+            {
+              "name": "Remmicom JV NV",
+              "kind": "partnership"
+            }
+          ]
+        }
+      ]
+    },
+    "events": [
+      {
+        "type": "milestone",
+        "status": "done",
+        "date": {
+          "occurredOn": "2026-06-30",
+          "precision": "day",
+          "expectedBy": null,
+          "periodLabel": null
+        },
+        "entity": {
+          "name": "Topicus.com Inc.",
+          "kind": "company"
+        },
+        "related": [],
+        "summary": "Topicus.com Inc. completed multiple acquisitions in the six-month period ended June 30, 2026 for total consideration of EUR 62,734 thousand.",
+        "attributes": {},
+        "sources": [
+          {
+            "source": "sedar",
+            "formType": "interim-financial-statements",
+            "filedOn": "2026-08-05",
+            "quote": "During the six-month period ended June 30, 2026, the Company completed acquisitions for aggregate cash consideration of EUR 46,251, plus cash holdbacks of EUR 10,893 and contingent consideration with an estimated acquisition date fair value of EUR 5,590 resulting in total consideration of EUR 62,734."
+          }
+        ]
+      },
+      {
+        "type": "divestiture",
+        "status": "done",
+        "date": {
+          "occurredOn": "2025-12-04",
+          "precision": "day",
+          "expectedBy": null,
+          "periodLabel": null
+        },
+        "entity": {
+          "name": "Topicus.com Inc.",
+          "kind": "company"
+        },
+        "related": [],
+        "summary": "On December 4, 2025, the shareholders' agreement derivative was exercised, resulting in Topicus selling 1.7% (1,411,006 shares) of Asseco and receiving total proceeds of EUR 28,368.",
+        "attributes": {
+          "amount": "28368",
+          "counterparty": "Adam Góral Family Foundation",
+          "currency": "EUR"
+        },
+        "sources": [
+          {
+            "source": "sedar",
+            "formType": "annual-financial-statements",
+            "filedOn": "2026-02-25",
+            "quote": "On December 4, 2025, the agreement was exercised for 1.7% (1,411,006 shares) of Asseco and the company received total proceeds of EUR 28,368 and the derivative is no longer presented on the balance sheet."
+          }
+        ]
+      },
+      {
+        "type": "milestone",
+        "status": "done",
+        "date": {
+          "occurredOn": "2025-12-04",
+          "precision": "day",
+          "expectedBy": null,
+          "periodLabel": null
+        },
+        "entity": {
+          "name": "Topicus.com Inc.",
+          "kind": "company"
+        },
+        "related": [
+          {
+            "name": "Asseco Poland S.A.",
+            "kind": "other"
+          }
+        ],
+        "summary": "On December 4, 2025, a binding agreement allowing certain parties to buy up to 1.7% of Asseco shares was exercised, reducing Topicus' shareholding to 23.14% and generating proceeds of €28.4 million.",
+        "attributes": {
+          "amount": "28.4",
+          "counterparty": "Asseco Poland S.A.",
+          "currency": "EUR"
+        },
+        "sources": [
+          {
+            "source": "sedar",
+            "formType": "annual-mdna",
+            "filedOn": "2026-02-25",
+            "quote": "On December 4, 2025, the agreement was exercised and the Company received total proceeds of €28.4 million and the derivative liability is no longer presented on the balance sheet. As a result, Topicus' shareholding in Asseco decreased to 23.14%"
+          }
+        ]
+      },
+      {
+        "type": "milestone",
+        "status": "done",
+        "date": {
+          "occurredOn": "2025-10-01",
+          "precision": "day",
+          "expectedBy": null,
+          "periodLabel": null
+        },
+        "entity": {
+          "name": "Topicus.com Inc.",
+          "kind": "company"
+        },
+        "related": [
+          {
+            "name": "Asseco Poland S.A.",
+            "kind": "other"
+          }
+        ],
+        "summary": "Topicus completed the acquisition of 14.84% of Asseco Poland S.A. treasury shares on October 1, 2025, increasing its total shareholding to 24.84%.",
+        "attributes": {
+          "amount": "168.0",
+          "counterparty": "Asseco Poland S.A.",
+          "currency": "EUR"
+        },
+        "sources": [
+          {
+            "source": "sedar",
+            "formType": "annual-mdna",
+            "filedOn": "2026-02-25",
+            "quote": "The acquisition of the 14.84% interest in Asseco's share capital was completed on October 1, 2025, increasing the Company's total shareholding to 24.84%"
+          }
+        ]
+      },
+      {
+        "type": "milestone",
+        "status": "done",
+        "date": {
+          "occurredOn": "2025-09-25",
+          "precision": "day",
+          "expectedBy": null,
+          "periodLabel": null
+        },
+        "entity": {
+          "name": "Topicus.com Inc.",
+          "kind": "company"
+        },
+        "related": [],
+        "summary": "Topicus.com commenced equity method of accounting for its investment in Asseco Poland S.A. on September 25, 2025, following receipt of the last outstanding regulatory approval.",
+        "attributes": {},
+        "sources": [
+          {
+            "source": "sedar",
+            "formType": "annual-financial-statements",
+            "filedOn": "2026-02-25",
+            "quote": "On September 25, 2025 and subsequent to this date, the Company applied the equity method of accounting to its existing 9.99% investment in Asseco as a result of its ability to exercise significant influence over Asseco."
+          }
+        ]
+      },
+      {
+        "type": "financing",
+        "status": "done",
+        "date": {
+          "occurredOn": "2025-06-30",
+          "precision": "day",
+          "expectedBy": null,
+          "periodLabel": null
+        },
+        "entity": {
+          "name": "Topicus.com Inc.",
+          "kind": "company"
+        },
+        "related": [],
+        "summary": "Topicus Coop obtained a €200.0 million senior unsecured Schuldschein loan on June 30, 2025.",
+        "attributes": {
+          "amount": "200.0",
+          "currency": "EUR",
+          "instrument": "Schuldschein loan",
+          "security": "senior unsecured"
+        },
+        "sources": [
+          {
+            "source": "sedar",
+            "formType": "annual-financial-statements",
+            "filedOn": "2026-02-25",
+            "quote": "On June 30, 2025, Topicus Coop obtained a EUR 200,000 senior unsecured Schuldschein Loan (the 'Loan')."
+          },
+          {
+            "source": "sedar",
+            "formType": "annual-mdna",
+            "filedOn": "2026-02-25",
+            "quote": "On June 30, 2025, Topicus Coop obtained a €200.0 million senior unsecured Schuldschein loan (the 'Loan')."
+          },
+          {
+            "source": "sedar",
+            "formType": "interim-financial-statements",
+            "filedOn": "2026-05-05",
+            "quote": "On June 30, 2025, Topicus Coop obtained a EUR 200,000 senior unsecured Schuldschein Loan (the 'Loan')."
+          },
+          {
+            "source": "sedar",
+            "formType": "interim-mdna",
+            "filedOn": "2026-05-05",
+            "quote": "On June 30, 2025, Topicus Coop obtained a €200.0 million senior unsecured Schuldschein loan (the 'Loan')."
+          },
+          {
+            "source": "sedar",
+            "formType": "interim-financial-statements",
+            "filedOn": "2026-08-05",
+            "quote": "On June 30, 2025, Topicus Coop obtained a EUR 200,000 senior unsecured Schuldschein Loan (the 'Loan')."
+          },
+          {
+            "source": "sedar",
+            "formType": "interim-mdna",
+            "filedOn": "2026-08-05",
+            "quote": "On June 30, 2025, Topicus Coop obtained a €200.0 million senior unsecured Schuldschein loan (the 'Loan')."
+          },
+          {
+            "source": "sedar",
+            "formType": "interim-financial-statements",
+            "filedOn": "2026-11-04",
+            "quote": "On June 30, 2025, Topicus Coop obtained a EUR 200,000 senior unsecured Schuldschein Loan (the 'Loan')."
+          },
+          {
+            "source": "sedar",
+            "formType": "interim-mdna",
+            "filedOn": "2026-11-04",
+            "quote": "On June 30, 2025, Topicus Coop obtained a €200.0 million senior unsecured Schuldschein loan (the 'Loan')."
+          }
+        ]
+      },
+      {
+        "type": "acquisition",
+        "status": "done",
+        "date": {
+          "occurredOn": "2025-06-02",
+          "precision": "day",
+          "expectedBy": null,
+          "periodLabel": null
+        },
+        "entity": {
+          "name": "Topicus.com Inc.",
+          "kind": "company"
+        },
+        "related": [
+          {
+            "name": "Cipal Schaubroeck NV",
+            "kind": "subsidiary"
+          }
+        ],
+        "summary": "Topicus.com Inc. completed the acquisition of 100% of the shares of Cipal Schaubroeck NV, a Belgium-based vertical market software provider, on June 2, 2025.",
+        "attributes": {
+          "amount": "223629",
+          "counterparty": "Cipal Schaubroeck NV",
+          "currency": "EUR"
+        },
+        "sources": [
+          {
+            "source": "sedar",
+            "formType": "annual-financial-statements",
+            "filedOn": "2026-02-25",
+            "quote": "On June 2, 2025, the Company completed the acquisition of 100% of the shares of Cipal Schaubroeck NV ('CS'). The Company paid cash of EUR 197,607 plus issued an estimated cash holdback payable of EUR 20,000 and contingent consideration with an estimated acquisition date fair value of EUR 6,022. The total consideration resulting from acquisition of CS is EUR 223,629."
+          }
+        ]
+      },
+      {
+        "type": "financing",
+        "status": "done",
+        "date": {
+          "occurredOn": "2025-05-13",
+          "precision": "day",
+          "expectedBy": null,
+          "periodLabel": null
+        },
+        "entity": {
+          "name": "Topicus.com Inc.",
+          "kind": "company"
+        },
+        "related": [],
+        "summary": "Topicus Coop amended its revolving credit facility with European financial institutions on May 13, 2025, increasing borrowing capacity to €700.0 million maturing October 28, 2029.",
+        "attributes": {
+          "amount": "700.0 million",
+          "currency": "EUR",
+          "maturity": "2029-10-28",
+          "type": "revolving credit facility"
+        },
+        "sources": [
+          {
+            "source": "sedar",
+            "formType": "annual-mdna",
+            "filedOn": "2026-02-25",
+            "quote": "On May 13, 2025, Topicus Coop amended the existing revolving credit facility (the 'Topicus Revolving Credit Facility') with a number of European financial institutions. Under the amended credit facility, the Company will be able to borrow up to €700.0 million under a multicurrency revolving loan facility."
+          }
+        ]
+      },
+      {
+        "type": "financing",
+        "status": "done",
+        "date": {
+          "occurredOn": "2025-05-13",
+          "precision": "day",
+          "expectedBy": null,
+          "periodLabel": null
+        },
+        "entity": {
+          "name": "Topicus.com Inc.",
+          "kind": "company"
+        },
+        "related": [],
+        "summary": "Topicus Coop amended its revolving credit facility with European financial institutions on May 13, 2025, increasing capacity to EUR 700,000 and extending maturity to October 28, 2030.",
+        "attributes": {
+          "amount": "700,000",
+          "counterparty": "European financial institutions",
+          "currency": "EUR"
+        },
+        "sources": [
+          {
+            "source": "sedar",
+            "formType": "annual-financial-statements",
+            "filedOn": "2026-02-25",
+            "quote": "On May 13, 2025, Topicus Coop amended the existing revolving credit facility (the 'Topicus Revolving Credit Facility') with a number of European financial institutions. Under the amended credit facility, the Company will be able to borrow up to EUR 700,000 under a multicurrency revolving loan facility."
+          },
+          {
+            "source": "sedar",
+            "formType": "interim-financial-statements",
+            "filedOn": "2026-05-05",
+            "quote": "On May 13, 2025, Topicus Coop amended the existing revolving credit facility (the 'Topicus Revolving Credit Facility') with a number of European financial institutions. Under the amended credit facility, the Company will be able to borrow up to EUR 700,000 under a multicurrency revolving loan facility."
+          },
+          {
+            "source": "sedar",
+            "formType": "interim-financial-statements",
+            "filedOn": "2026-08-05",
+            "quote": "On May 13, 2025, Topicus Coop amended the existing revolving credit facility (the 'Topicus Revolving Credit Facility') with a number of European financial institutions. Under the amended credit facility, the Company will be able to borrow up to EUR 700,000 under a multicurrency revolving loan facility."
+          },
+          {
+            "source": "sedar",
+            "formType": "interim-financial-statements",
+            "filedOn": "2026-11-04",
+            "quote": "On May 13, 2025, Topicus Coop amended the existing revolving credit facility (the 'Topicus Revolving Credit Facility') with a number of European financial institutions. Under the amended credit facility, the Company will be able to borrow up to EUR 700,000 under a multicurrency revolving loan facility."
+          }
+        ]
+      },
+      {
+        "type": "milestone",
+        "status": "done",
+        "date": {
+          "occurredOn": "2025-05-13",
+          "precision": "day",
+          "expectedBy": null,
+          "periodLabel": null
+        },
+        "entity": {
+          "name": "Topicus.com Inc.",
+          "kind": "company"
+        },
+        "related": [],
+        "summary": "Topicus Coop amended its existing revolving credit facility with European financial institutions on May 13, 2025, increasing capacity to €700.0 million and extending maturity to October 28, 2030.",
+        "attributes": {},
+        "sources": [
+          {
+            "source": "sedar",
+            "formType": "interim-mdna",
+            "filedOn": "2026-05-05",
+            "quote": "On May 13, 2025, Topicus Coop amended the existing revolving credit facility (the 'Topicus Revolving Credit Facility') with a number of European financial institutions. Under the amended credit facility, the Company will be able to borrow up to €700.0 million under a multicurrency revolving loan facility."
+          },
+          {
+            "source": "sedar",
+            "formType": "interim-mdna",
+            "filedOn": "2026-08-05",
+            "quote": "On May 13, 2025, Topicus Coop amended the existing revolving credit facility (the 'Topicus Revolving Credit Facility') with a number of European financial institutions. Under the amended credit facility, the Company will be able to borrow up to €700.0 million under a multicurrency revolving loan facility."
+          },
+          {
+            "source": "sedar",
+            "formType": "interim-mdna",
+            "filedOn": "2026-11-04",
+            "quote": "On May 13, 2025, Topicus Coop amended the existing revolving credit facility (the 'Topicus Revolving Credit Facility') with a number of European financial institutions. Under the amended credit facility, the Company will be able to borrow up to €700.0 million under a multicurrency revolving loan facility. The Topicus Revolving Credit Facility matures on October 28, 2030."
+          }
+        ]
+      },
+      {
+        "type": "partnership",
+        "status": "done",
+        "date": {
+          "occurredOn": "2025-02-03",
+          "precision": "day",
+          "expectedBy": null,
+          "periodLabel": null
+        },
+        "entity": {
+          "name": "Topicus.com Inc.",
+          "kind": "company"
+        },
+        "related": [],
+        "summary": "Topicus.com Inc. announced the signing of a shareholders' agreement with the Adam Góral Family Foundation governing cooperation as shareholders in Asseco on February 3, 2025.",
+        "attributes": {
+          "amount": "523550",
+          "counterparty": "Adam Góral Family Foundation",
+          "currency": "EUR"
+        },
+        "sources": [
+          {
+            "source": "sedar",
+            "formType": "annual-financial-statements",
+            "filedOn": "2026-02-25",
+            "quote": "On February 3, 2025, Topicus announced the signing of a shareholders' agreement which was entered into with the Adam Góral Family Foundation governing their cooperation as shareholders in Asseco."
+          }
+        ]
+      },
+      {
+        "type": "acquisition",
+        "status": "done",
+        "date": {
+          "occurredOn": "2025-01-31",
+          "precision": "day",
+          "expectedBy": null,
+          "periodLabel": null
+        },
+        "entity": {
+          "name": "Topicus.com Inc.",
+          "kind": "company"
+        },
+        "related": [
+          {
+            "name": "Asseco Poland S.A.",
+            "kind": "other"
+          }
+        ],
+        "summary": "On January 31, 2025, Topicus purchased 8,300,029 shares in Asseco Poland from Cyfrowy Polsat S.A., representing approximately 9.99% of Asseco's issued shares, for total consideration of €168.0 million.",
+        "attributes": {
+          "amount": "168.0",
+          "counterparty": "Cyfrowy Polsat S.A.",
+          "currency": "EUR"
+        },
+        "sources": [
+          {
+            "source": "sedar",
+            "formType": "annual-financial-statements",
+            "filedOn": "2026-02-25",
+            "quote": "On January 31, 2025, the Company purchased 8,300,029 shares in Asseco Poland S.A. ('Asseco') representing approximately 9.99% of the issued shares in Asseco. The Asseco shares were acquired at a price of 85 PLN per share for total consideration of EUR 167,977."
+          },
+          {
+            "source": "sedar",
+            "formType": "annual-financial-statements",
+            "filedOn": "2026-02-25",
+            "quote": "The acquisition of the 14.84% interest in Asseco's share capital was completed on October 1, 2025, increasing the Company's total shareholding to 24.84% and the derivative is no longer presented on the balance sheet."
+          },
+          {
+            "source": "sedar",
+            "formType": "annual-financial-statements",
+            "filedOn": "2026-02-25",
+            "quote": "The acquisition of the 14.84% interest in Asseco's share capital was completed on October 1, 2025."
+          },
+          {
+            "source": "sedar",
+            "formType": "annual-mdna",
+            "filedOn": "2026-02-25",
+            "quote": "On January 31, 2025, the Company purchased 8,300,029 shares in Asseco from Cyfrowy Polsat S.A., representing approximately 9.99% of the issued shares in Asseco. The Asseco shares were acquired at a price of 85 PLN per share for total consideration of €168.0 million."
+          }
+        ]
+      },
+      {
+        "type": "acquisition",
+        "status": "done",
+        "date": {
+          "occurredOn": null,
+          "precision": null,
+          "expectedBy": null,
+          "periodLabel": "Q1 2026"
+        },
+        "entity": {
+          "name": "Topicus.com Inc.",
+          "kind": "company"
+        },
+        "related": [],
+        "summary": "Topicus.com Inc. completed multiple acquisitions during Q1 2026 for total consideration of EUR 22,508 thousand.",
+        "attributes": {
+          "amount": "22,508",
+          "currency": "EUR"
+        },
+        "sources": [
+          {
+            "source": "sedar",
+            "formType": "annual-mdna",
+            "filedOn": "2026-02-25",
+            "quote": "acquisitions for an aggregate of €336.6 million (including payments for holdbacks relating to prior acquisitions) offset by €62.7 million of acquired cash"
+          },
+          {
+            "source": "sedar",
+            "formType": "interim-financial-statements",
+            "filedOn": "2026-05-05",
+            "quote": "the Company completed acquisitions for aggregate cash consideration of EUR 15,028, plus cash holdbacks of EUR 4,735 and contingent consideration with an estimated acquisition date fair value of EUR 2,745 resulting in total consideration of EUR 22,508"
+          }
+        ]
+      },
+      {
+        "type": "acquisition",
+        "status": "done",
+        "date": {
+          "occurredOn": null,
+          "precision": null,
+          "expectedBy": null,
+          "periodLabel": "H1 2026"
+        },
+        "entity": {
+          "name": "Topicus.com Inc.",
+          "kind": "company"
+        },
+        "related": [],
+        "summary": "Topicus.com Inc. completed multiple acquisitions of software companies across various verticals during the six-month period ended June 30, 2026.",
+        "attributes": {
+          "amount": "107,751",
+          "counterparty": "various software companies",
+          "currency": "EUR"
+        },
+        "sources": [
+          {
+            "source": "sedar",
+            "formType": "annual-financial-statements",
+            "filedOn": "2026-02-25",
+            "quote": "None of the additional acquisitions completed during the year ended December 31, 2025 were deemed to be individually significant. All of the businesses acquired during the period were acquisitions of shares."
+          },
+          {
+            "source": "sedar",
+            "formType": "interim-financial-statements",
+            "filedOn": "2026-08-05",
+            "quote": "The acquisitions during the six-month period ended June 30, 2026 include software companies catering to the automotive, planning, government, chemicals, healthcare, legal, gaming, financial services, printing, laboratory, enterprise resource planning and education verticals"
+          }
+        ]
+      },
+      {
+        "type": "acquisition",
+        "status": "done",
+        "date": {
+          "occurredOn": null,
+          "precision": null,
+          "expectedBy": null,
+          "periodLabel": null
+        },
+        "entity": {
+          "name": "Topicus.com Inc.",
+          "kind": "company"
+        },
+        "related": [
+          {
+            "name": "Remmicom JV NV",
+            "kind": "partnership"
+          }
+        ],
+        "summary": "Topicus.com acquired a 50% interest in Remmicom JV NV as part of the acquisition of Cipal, applying the equity method of accounting.",
+        "attributes": {
+          "counterparty": "Cipal"
+        },
+        "sources": [
+          {
+            "source": "sedar",
+            "formType": "annual-financial-statements",
+            "filedOn": "2026-02-25",
+            "quote": "As a result of the acquisition of Cipal (note 4), the Company acquired a 50% interest in Remmicom JV NV."
+          }
+        ]
+      },
+      {
+        "type": "milestone",
+        "status": "done",
+        "date": {
+          "occurredOn": null,
+          "precision": null,
+          "expectedBy": null,
+          "periodLabel": "Q3 2026"
+        },
+        "entity": {
+          "name": "Topicus.com Inc.",
+          "kind": "company"
+        },
+        "related": [
+          {
+            "name": "Asseco",
+            "kind": "other"
+          }
+        ],
+        "summary": "Topicus.com Inc. completed multiple acquisitions during the nine-month period ended September 30, 2026 for total consideration of EUR 126,774 thousand.",
+        "attributes": {},
+        "sources": [
+          {
+            "source": "sedar",
+            "formType": "annual-mdna",
+            "filedOn": "2026-02-25",
+            "quote": "the €413.2 million investment in Asseco equity securities"
+          },
+          {
+            "source": "sedar",
+            "formType": "interim-financial-statements",
+            "filedOn": "2026-05-05",
+            "quote": "The acquisitions during the three-month period ended March 31, 2026 include software companies catering to the automotive, planning, government, chemicals, healthcare, legal, gaming and education verticals"
+          },
+          {
+            "source": "sedar",
+            "formType": "interim-financial-statements",
+            "filedOn": "2026-11-04",
+            "quote": "During the nine-month period ended September 30, 2026, the Company completed acquisitions for aggregate cash consideration of EUR 93,303, plus cash holdbacks of EUR 27,217 and contingent consideration with an estimated acquisition date fair value of EUR 6,253 resulting in total consideration of EUR 126,774."
+          }
+        ]
+      },
+      {
+        "type": "acquisition",
+        "status": "expected",
+        "date": {
+          "occurredOn": null,
+          "precision": null,
+          "expectedBy": null,
+          "periodLabel": null
+        },
+        "entity": {
+          "name": "Topicus.com Inc.",
+          "kind": "company"
+        },
+        "related": [],
+        "summary": "Subsequent to December 31, 2025, Topicus.com Inc. entered into agreements to acquire a number of businesses in automotive, planning, government, chemicals, healthcare, and legal verticals for total consideration of EUR 20,284 thousand.",
+        "attributes": {
+          "amount": "20284",
+          "counterparty": "multiple software companies",
+          "currency": "EUR"
+        },
+        "sources": [
+          {
+            "source": "sedar",
+            "formType": "annual-financial-statements",
+            "filedOn": "2026-02-25",
+            "quote": "Subsequent to December 31, 2025 the Company completed or have entered into agreements to acquire a number of additional businesses for aggregate cash consideration of EUR 13,299 on closing plus cash holdbacks of EUR 3,878 and contingent consideration with an estimated fair value of EUR 3,107 for total consideration of EUR 20,284."
+          }
+        ]
+      },
+      {
+        "type": "acquisition",
+        "status": "expected",
+        "date": {
+          "occurredOn": null,
+          "precision": null,
+          "expectedBy": null,
+          "periodLabel": null
+        },
+        "entity": {
+          "name": "Topicus.com Inc.",
+          "kind": "company"
+        },
+        "related": [],
+        "summary": "Subsequent to June 30, 2026, Topicus.com Inc. completed or has open commitments to acquire a number of businesses in the fleet, healthcare, and education verticals for total consideration of €56.1 million.",
+        "attributes": {
+          "amount": "56.1 million",
+          "counterparty": "undisclosed fleet, healthcare and education software companies",
+          "currency": "EUR"
+        },
+        "sources": [
+          {
+            "source": "sedar",
+            "formType": "interim-financial-statements",
+            "filedOn": "2026-08-05",
+            "quote": "Subsequent to June 30, 2026 the Company completed or has open commitments to acquire a number of businesses for aggregate cash consideration of EUR 43,384 on closing plus total estimated deferred payments of EUR 12,739 for total consideration of EUR 56,123."
+          },
+          {
+            "source": "sedar",
+            "formType": "interim-mdna",
+            "filedOn": "2026-08-05",
+            "quote": "Subsequent to June 30, 2026 the Company completed or has open commitments to acquire a number of additional businesses for aggregate cash consideration of €43.4 million on closing plus total estimated deferred payments of €12.7 million for total consideration of €56.1 million."
+          }
+        ]
+      },
+      {
+        "type": "acquisition",
+        "status": "expected",
+        "date": {
+          "occurredOn": null,
+          "precision": null,
+          "expectedBy": null,
+          "periodLabel": null
+        },
+        "entity": {
+          "name": "Topicus.com Inc.",
+          "kind": "company"
+        },
+        "related": [],
+        "summary": "Subsequent to March 31, 2026, Topicus.com completed or has open commitments to acquire a number of businesses in local government, financial services, printing, and healthcare verticals for total consideration of EUR 37,678 thousand.",
+        "attributes": {
+          "amount": "37,678",
+          "counterparty": "undisclosed software companies",
+          "currency": "EUR"
+        },
+        "sources": [
+          {
+            "source": "sedar",
+            "formType": "interim-financial-statements",
+            "filedOn": "2026-05-05",
+            "quote": "Subsequent to March 31, 2026 the Company completed or has open commitments to acquire a number of businesses for aggregate cash consideration of EUR 29,285 on closing plus total estimated deferred payments of EUR 8,393 for total consideration of EUR 37,678."
+          }
+        ]
+      },
+      {
+        "type": "acquisition",
+        "status": "expected",
+        "date": {
+          "occurredOn": null,
+          "precision": null,
+          "expectedBy": null,
+          "periodLabel": null
+        },
+        "entity": {
+          "name": "Topicus.com Inc.",
+          "kind": "company"
+        },
+        "related": [],
+        "summary": "Subsequent to September 30, 2026, Topicus.com Inc. completed or has open commitments to acquire additional businesses in healthcare and real estate verticals for total consideration of €16.5 million.",
+        "attributes": {
+          "amount": "16.5 million",
+          "counterparty": "undisclosed healthcare and real estate software companies",
+          "currency": "EUR"
+        },
+        "sources": [
+          {
+            "source": "sedar",
+            "formType": "interim-financial-statements",
+            "filedOn": "2026-11-04",
+            "quote": "Subsequent to September 30, 2026 the Company completed or has open commitments to acquire businesses for aggregate cash consideration of EUR 11,011 on closing plus total estimated deferred payments of EUR 5,503 for total consideration of EUR 16,514."
+          },
+          {
+            "source": "sedar",
+            "formType": "interim-mdna",
+            "filedOn": "2026-11-04",
+            "quote": "Subsequent to September 30, 2026 the Company completed or has open commitments to acquire a number of additional businesses for aggregate cash consideration of €11.0 million on closing plus total estimated deferred payments of €5.5 million for total consideration of €16.5 million."
+          }
+        ]
+      },
+      {
+        "type": "acquisition",
+        "status": "expected",
+        "date": {
+          "occurredOn": null,
+          "precision": null,
+          "expectedBy": null,
+          "periodLabel": null
+        },
+        "entity": {
+          "name": "Topicus.com Inc.",
+          "kind": "company"
+        },
+        "related": [],
+        "summary": "Topicus.com completed or has open commitments to acquire several businesses in local government, financial services, printing, and healthcare verticals for total consideration of €37.7 million subsequent to March 31, 2026.",
+        "attributes": {
+          "amount": "37.7",
+          "counterparty": "multiple businesses",
+          "currency": "EUR"
+        },
+        "sources": [
+          {
+            "source": "sedar",
+            "formType": "annual-mdna",
+            "filedOn": "2026-02-25",
+            "quote": "Subsequent to December 31, 2025 the Company completed or has open commitments to acquire a number of additional businesses for aggregate cash consideration of €13.3 million on closing plus total estimated deferred payments of €7.0 million for total consideration of €20.3 million."
+          },
+          {
+            "source": "sedar",
+            "formType": "interim-mdna",
+            "filedOn": "2026-05-05",
+            "quote": "Subsequent to March 31, 2026 the Company completed or has open commitments to acquire a number of additional businesses for aggregate cash consideration of €29.3 million on closing plus total estimated deferred payments of €8.4 million for total consideration of €37.7 million."
+          }
+        ]
+      },
+      {
+        "type": "litigation",
+        "status": "expected",
+        "date": {
+          "occurredOn": null,
+          "precision": null,
+          "expectedBy": null,
+          "periodLabel": null
+        },
+        "entity": {
+          "name": "Topicus.com Inc.",
+          "kind": "company"
+        },
+        "related": [],
+        "summary": "The Dutch Tax Authorities are challenging the deductibility of Topicus.com's employee bonus program for financial years 2016 and 2018 to date, with potential additional tax expense including interest of up to approximately EUR 9,100.",
+        "attributes": {
+          "jurisdiction": "Netherlands",
+          "matter": "deductibility of employee bonus program for financial years 2016 and 2018 to date",
+          "regulator": "Dutch Tax Authorities"
+        },
+        "sources": [
+          {
+            "source": "sedar",
+            "formType": "interim-financial-statements",
+            "filedOn": "2026-08-05",
+            "quote": "The deductibility of the Company's employee bonus program is being challenged by the Dutch Tax Authorities for financial years 2016 and 2018 to date. The Company continues to believe in the merits of its tax filing position and, as such, has not recognized any provision"
+          },
+          {
+            "source": "sedar",
+            "formType": "interim-financial-statements",
+            "filedOn": "2026-11-04",
+            "quote": "The deductibility of the Company's employee bonus program is being challenged by the Dutch Tax Authorities for financial years 2016 and 2018 to date. The Company continues to believe in the merits of its tax filing position and, as such, has not recognized any provision"
+          }
+        ]
+      },
+      {
+        "type": "litigation",
+        "status": "expected",
+        "date": {
+          "occurredOn": null,
+          "precision": null,
+          "expectedBy": null,
+          "periodLabel": null
+        },
+        "entity": {
+          "name": "Topicus.com Inc.",
+          "kind": "company"
+        },
+        "related": [],
+        "summary": "The Dutch Tax Authorities are challenging the deductibility of Topicus.com's employee bonus program for financial years 2016 and 2018 to date, with potential additional tax expense of up to approximately €8.7 million through June 30, 2026.",
+        "attributes": {
+          "counterparty": "Dutch Tax Authorities",
+          "matter": "deductibility of employee bonus program"
+        },
+        "sources": [
+          {
+            "source": "sedar",
+            "formType": "interim-mdna",
+            "filedOn": "2026-08-05",
+            "quote": "The deductibility of the Company's employee bonus program is being challenged by the Dutch Tax Authorities for financial years 2016 and 2018 to date."
+          }
+        ]
+      },
+      {
+        "type": "litigation",
+        "status": "expected",
+        "date": {
+          "occurredOn": null,
+          "precision": null,
+          "expectedBy": null,
+          "periodLabel": null
+        },
+        "entity": {
+          "name": "Topicus.com Inc.",
+          "kind": "company"
+        },
+        "related": [],
+        "summary": "The Dutch Tax Authorities are challenging the deductibility of Topicus.com's employee bonus program for financial years 2016 and 2018 to date, with potential additional tax expense of up to €9.1 million through September 30, 2026.",
+        "attributes": {
+          "counterparty": "Dutch Tax Authorities",
+          "jurisdiction": "Netherlands"
+        },
+        "sources": [
+          {
+            "source": "sedar",
+            "formType": "annual-financial-statements",
+            "filedOn": "2026-02-25",
+            "quote": "The deductibility of the Company's employee bonus program is being challenged by the Dutch Tax Authorities for financial years 2016 and 2018 to date."
+          },
+          {
+            "source": "sedar",
+            "formType": "annual-mdna",
+            "filedOn": "2026-02-25",
+            "quote": "The deductibility of the Company's employee bonus program is being challenged by the Dutch Tax Authorities for financial years 2016 and 2018 to date."
+          },
+          {
+            "source": "sedar",
+            "formType": "interim-mdna",
+            "filedOn": "2026-05-05",
+            "quote": "The deductibility of the Company's employee bonus program is being challenged by the Dutch Tax Authorities for financial years 2016 and 2018 to date."
+          },
+          {
+            "source": "sedar",
+            "formType": "interim-mdna",
+            "filedOn": "2026-11-04",
+            "quote": "The deductibility of the Company's employee bonus program is being challenged by the Dutch Tax Authorities for financial years 2016 and 2018 to date."
+          }
+        ]
+      }
+    ],
+    "metrics": [
+      {
+        "metricId": "capex",
+        "metricName": "Capex",
+        "metricFormat": "number",
+        "isCurrency": true,
+        "isPerShare": false,
+        "isKeyMetric": true,
+        "slotKey": "capex"
+      },
+      {
+        "metricId": "cash",
+        "metricName": "Cash",
+        "metricFormat": "number",
+        "isCurrency": true,
+        "isPerShare": false,
+        "isKeyMetric": true,
+        "slotKey": "cash"
+      },
+      {
+        "metricId": "debt",
+        "metricName": "Debt",
+        "metricFormat": "number",
+        "isCurrency": true,
+        "isPerShare": false,
+        "isKeyMetric": true,
+        "slotKey": "debt"
+      },
+      {
+        "metricId": "eps",
+        "metricName": "EPS per share",
+        "metricFormat": "number",
+        "isCurrency": true,
+        "isPerShare": true,
+        "isKeyMetric": true,
+        "slotKey": "eps"
+      },
+      {
+        "metricId": "eps_change_pct",
+        "metricName": "EPS growth % per share",
+        "metricFormat": "%",
+        "isCurrency": false,
+        "isPerShare": true,
+        "isKeyMetric": true,
+        "slotKey": null
+      },
+      {
+        "metricId": "free_cash_flow",
+        "metricName": "Free cash flow",
+        "metricFormat": "number",
+        "isCurrency": true,
+        "isPerShare": false,
+        "isKeyMetric": true,
+        "slotKey": "free-cash-flow"
+      },
+      {
+        "metricId": "net_debt",
+        "metricName": "Net debt",
+        "metricFormat": "number",
+        "isCurrency": true,
+        "isPerShare": false,
+        "isKeyMetric": true,
+        "slotKey": null
+      },
+      {
+        "metricId": "net_income",
+        "metricName": "Net income",
+        "metricFormat": "number",
+        "isCurrency": true,
+        "isPerShare": false,
+        "isKeyMetric": true,
+        "slotKey": "net-income"
+      },
+      {
+        "metricId": "net_income_change_pct",
+        "metricName": "Net income growth %",
+        "metricFormat": "%",
+        "isCurrency": false,
+        "isPerShare": false,
+        "isKeyMetric": true,
+        "slotKey": null
+      },
+      {
+        "metricId": "operating_cash_flow",
+        "metricName": "Operating cash flow",
+        "metricFormat": "number",
+        "isCurrency": true,
+        "isPerShare": false,
+        "isKeyMetric": true,
+        "slotKey": "operating-cash-flow"
+      },
+      {
+        "metricId": "operating_cash_flow_change_pct",
+        "metricName": "Operating cash flow growth %",
+        "metricFormat": "%",
+        "isCurrency": false,
+        "isPerShare": false,
+        "isKeyMetric": true,
+        "slotKey": null
+      },
+      {
+        "metricId": "operating_income",
+        "metricName": "Operating income",
+        "metricFormat": "number",
+        "isCurrency": true,
+        "isPerShare": false,
+        "isKeyMetric": true,
+        "slotKey": "operating-income"
+      },
+      {
+        "metricId": "revenue",
+        "metricName": "Revenue",
+        "metricFormat": "number",
+        "isCurrency": true,
+        "isPerShare": false,
+        "isKeyMetric": true,
+        "slotKey": "revenue"
+      },
+      {
+        "metricId": "revenue_change_pct",
+        "metricName": "Revenue growth %",
+        "metricFormat": "%",
+        "isCurrency": false,
+        "isPerShare": false,
+        "isKeyMetric": true,
+        "slotKey": null
+      },
+      {
+        "metricId": "revenue_change_pct_ex_fx",
+        "metricName": "Revenue growth % ex FX",
+        "metricFormat": "%",
+        "isCurrency": false,
+        "isPerShare": false,
+        "isKeyMetric": true,
+        "slotKey": null
+      },
+      {
+        "metricId": "acquisitions",
+        "metricName": "Acquisitions",
+        "metricFormat": "number",
+        "isCurrency": true,
+        "isPerShare": false,
+        "isKeyMetric": true,
+        "slotKey": null
+      },
+      {
+        "metricId": "fcfa2s_change_pct",
+        "metricName": "FCFA2S growth %",
+        "metricFormat": "%",
+        "isCurrency": false,
+        "isPerShare": false,
+        "isKeyMetric": true,
+        "slotKey": null
+      },
+      {
+        "metricId": "organic_growth_change_pct",
+        "metricName": "Organic growth growth %",
+        "metricFormat": "%",
+        "isCurrency": false,
+        "isPerShare": false,
+        "isKeyMetric": true,
+        "slotKey": null
+      },
+      {
+        "metricId": "geography_nl_revenue",
+        "metricName": "NL revenue",
+        "metricFormat": "number",
+        "isCurrency": true,
+        "isPerShare": false,
+        "isKeyMetric": false,
+        "slotKey": null
+      },
+      {
+        "metricId": "geography_row_revenue",
+        "metricName": "Row revenue",
+        "metricFormat": "number",
+        "isCurrency": true,
+        "isPerShare": false,
+        "isKeyMetric": false,
+        "slotKey": null
+      },
+      {
+        "metricId": "geography_topicus_coop_excl_geosoftware_geoactive_sygnity_revenue",
+        "metricName": "Topicus Coop Excl Geosoftware Geoactive Sygnity revenue",
+        "metricFormat": "number",
+        "isCurrency": true,
+        "isPerShare": false,
+        "isKeyMetric": false,
+        "slotKey": null
+      },
+      {
+        "metricId": "hardware_and_other_revenue",
+        "metricName": "Hardware and other revenue",
+        "metricFormat": "number",
+        "isCurrency": true,
+        "isPerShare": false,
+        "isKeyMetric": false,
+        "slotKey": null
+      },
+      {
+        "metricId": "hardware_and_other_revenue_change_pct",
+        "metricName": "Hardware and other revenue growth %",
+        "metricFormat": "%",
+        "isCurrency": false,
+        "isPerShare": false,
+        "isKeyMetric": false,
+        "slotKey": null
+      },
+      {
+        "metricId": "hardware_and_other_revenue_change_pct_ex_fx",
+        "metricName": "Hardware and other revenue growth % ex FX",
+        "metricFormat": "%",
+        "isCurrency": false,
+        "isPerShare": false,
+        "isKeyMetric": false,
+        "slotKey": null
+      },
+      {
+        "metricId": "licenses_revenue",
+        "metricName": "Licenses revenue",
+        "metricFormat": "number",
+        "isCurrency": true,
+        "isPerShare": false,
+        "isKeyMetric": false,
+        "slotKey": null
+      },
+      {
+        "metricId": "licenses_revenue_change_pct",
+        "metricName": "Licenses revenue growth %",
+        "metricFormat": "%",
+        "isCurrency": false,
+        "isPerShare": false,
+        "isKeyMetric": false,
+        "slotKey": null
+      },
+      {
+        "metricId": "licenses_revenue_change_pct_ex_fx",
+        "metricName": "Licenses revenue growth % ex FX",
+        "metricFormat": "%",
+        "isCurrency": false,
+        "isPerShare": false,
+        "isKeyMetric": false,
+        "slotKey": null
+      },
+      {
+        "metricId": "maintenance_and_other_recurring_revenue",
+        "metricName": "Maintenance and other recurring revenue",
+        "metricFormat": "number",
+        "isCurrency": true,
+        "isPerShare": false,
+        "isKeyMetric": false,
+        "slotKey": null
+      },
+      {
+        "metricId": "maintenance_and_other_recurring_revenue_change_pct",
+        "metricName": "Maintenance and other recurring revenue growth %",
+        "metricFormat": "%",
+        "isCurrency": false,
+        "isPerShare": false,
+        "isKeyMetric": false,
+        "slotKey": null
+      },
+      {
+        "metricId": "maintenance_and_other_recurring_revenue_change_pct_ex_fx",
+        "metricName": "Maintenance and other recurring revenue growth % ex FX",
+        "metricFormat": "%",
+        "isCurrency": false,
+        "isPerShare": false,
+        "isKeyMetric": false,
+        "slotKey": null
+      },
+      {
+        "metricId": "professional_services_revenue",
+        "metricName": "Professional services revenue",
+        "metricFormat": "number",
+        "isCurrency": true,
+        "isPerShare": false,
+        "isKeyMetric": false,
+        "slotKey": null
+      },
+      {
+        "metricId": "professional_services_revenue_change_pct",
+        "metricName": "Professional services revenue growth %",
+        "metricFormat": "%",
+        "isCurrency": false,
+        "isPerShare": false,
+        "isKeyMetric": false,
+        "slotKey": null
+      },
+      {
+        "metricId": "professional_services_revenue_change_pct_ex_fx",
+        "metricName": "Professional services revenue growth % ex FX",
+        "metricFormat": "%",
+        "isCurrency": false,
+        "isPerShare": false,
+        "isKeyMetric": false,
+        "slotKey": null
+      }
+    ],
+    "data": [
+      {
+        "periodId": "toi_Quarterly_2026-09-30",
+        "periodType": "Quarterly",
+        "reportDate": "2026-09-30",
+        "periodDuration": "3 Months",
+        "calendarYear": 2026,
+        "calendarQuarter": 3,
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "earningsDate": null,
+        "earningsTimeOfDay": null,
+        "lastSourceFilingDate": "2026-11-04",
+        "lastSourceFilingTimeOfDay": null,
+        "isRestated": null,
+        "metricValues": {
+          "capex": {
+            "value": 3400000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "Property and equipment purchased | : (3.4)"
+              }
+            ]
+          },
+          "eps": {
+            "value": 0.34,
+            "unit": "Per Share",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-11-04",
+                "quote": "Basic | Three months ended September 30, - 2026: 0.34"
+              }
+            ]
+          },
+          "free_cash_flow": {
+            "value": 18800000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "FCFA2S | Sep. 30 2026: 18.8"
+              }
+            ]
+          },
+          "net_income": {
+            "value": 46513000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-11-04",
+                "quote": "Net income (loss) | Three months ended September 30, - 2026: 46,513"
+              }
+            ]
+          },
+          "net_income_change_pct": {
+            "value": 1.069,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "Equity holders of Topicus | Period-Over- Period Change - €%: 106.9"
+              }
+            ]
+          },
+          "operating_cash_flow": {
+            "value": 47400000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "Net cash flows from operating activities | : 47.4"
+              }
+            ]
+          },
+          "operating_cash_flow_change_pct": {
+            "value": -0.02,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "text",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "representing a decrease of 2%"
+              }
+            ]
+          },
+          "revenue": {
+            "value": 445092000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-11-04",
+                "quote": "Revenue | Topicus Coop: 445,092"
+              }
+            ]
+          },
+          "revenue_change_pct": {
+            "value": 0.05,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "| : 5%"
+              }
+            ]
+          },
+          "acquisitions": {
+            "value": -47052000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-11-04",
+                "quote": "Acquisition of businesses (note 4) | Three months ended September 30, - 2026: (47,052)"
+              }
+            ]
+          },
+          "fcfa2s_change_pct": {
+            "value": -0.035,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "Free cash flow available to shareholders | Period-Over- Period Change - €%: (3.5)"
+              }
+            ]
+          },
+          "organic_growth_change_pct": {
+            "value": 0.05,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "text",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "the Company experienced organic growth of 5% for both periods"
+              }
+            ]
+          },
+          "hardware_and_other_revenue": {
+            "value": 13018000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-11-04",
+                "quote": "Hardware and other | Three months ended September 30, - 2026: 13,018"
+              }
+            ]
+          },
+          "hardware_and_other_revenue_change_pct": {
+            "value": 0.89,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "Hardware and other | % Change: 89%"
+              }
+            ]
+          },
+          "licenses_revenue": {
+            "value": 11460000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-11-04",
+                "quote": "License | Three months ended September 30, - 2026: 11,460"
+              }
+            ]
+          },
+          "licenses_revenue_change_pct": {
+            "value": 0.29,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "Licenses | % Change: 29%"
+              }
+            ]
+          },
+          "maintenance_and_other_recurring_revenue": {
+            "value": 325755000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-11-04",
+                "quote": "Maintenance and other recurring | Three months ended September 30, - 2026: 325,755"
+              }
+            ]
+          },
+          "maintenance_and_other_recurring_revenue_change_pct": {
+            "value": 0.17,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "Maintenance and other recurring | % Change: 17%"
+              }
+            ]
+          },
+          "professional_services_revenue": {
+            "value": 94859000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-11-04",
+                "quote": "Professional services | Three months ended September 30, - 2026: 94,859"
+              }
+            ]
+          },
+          "professional_services_revenue_change_pct": {
+            "value": -0.05,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "Professional services | : -5%"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "periodId": "toi_NineMonths_2026-09-30",
+        "periodType": "NineMonths",
+        "reportDate": "2026-09-30",
+        "periodDuration": "9 Months",
+        "calendarYear": 2026,
+        "calendarQuarter": 3,
+        "fiscalYear": 2026,
+        "fiscalQuarter": 3,
+        "earningsDate": null,
+        "earningsTimeOfDay": null,
+        "lastSourceFilingDate": "2026-11-04",
+        "lastSourceFilingTimeOfDay": null,
+        "isRestated": null,
+        "metricValues": {
+          "eps": {
+            "value": 1.11,
+            "unit": "Per Share",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-11-04",
+                "quote": "Diluted | Nine months ended September 30, - 2026: 1.11"
+              }
+            ]
+          },
+          "free_cash_flow": {
+            "value": 199100000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "Free cash flow available to shareholders | Nine months ended - 2026 September: 199.1"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "periodId": "toi_PointInTime_2026-09-30",
+        "periodType": "PointInTime",
+        "reportDate": "2026-09-30",
+        "periodDuration": "Point in time",
+        "calendarYear": 2026,
+        "calendarQuarter": 3,
+        "fiscalYear": 2026,
+        "fiscalQuarter": null,
+        "earningsDate": null,
+        "earningsTimeOfDay": null,
+        "lastSourceFilingDate": "2026-11-04",
+        "lastSourceFilingTimeOfDay": null,
+        "isRestated": null,
+        "metricValues": {
+          "cash": {
+            "value": 342391000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-11-04",
+                "quote": "Cash | September 30, 2026: 342,391"
+              }
+            ]
+          },
+          "debt": {
+            "value": 479700000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "Debt | September 30, 2026: 479.7"
+              }
+            ]
+          },
+          "net_debt": {
+            "value": -137300000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": true,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "Cash less Debt | September 30, 2026: (137.3)"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "periodId": "toi_Quarterly_2026-06-30",
+        "periodType": "Quarterly",
+        "reportDate": "2026-06-30",
+        "periodDuration": "3 Months",
+        "calendarYear": 2026,
+        "calendarQuarter": 2,
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "earningsDate": null,
+        "earningsTimeOfDay": null,
+        "lastSourceFilingDate": "2026-11-04",
+        "lastSourceFilingTimeOfDay": null,
+        "isRestated": null,
+        "metricValues": {
+          "capex": {
+            "value": 3104000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "derived",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-05-05",
+                "quote": "Property and equipment purchased | Three months ended March 31, - 2026: (3,236)"
+              },
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-08-05",
+                "quote": "Property and equipment purchased | Six months ended June 30, - 2026: (6,340)"
+              }
+            ],
+            "derivation": {
+              "method": "period-difference",
+              "description": "H1 2026 minus Q1 2026",
+              "inputs": [
+                {
+                  "periodLabel": "H1 2026",
+                  "amount": "6340000"
+                },
+                {
+                  "periodLabel": "Q1 2026",
+                  "amount": "3236000"
+                }
+              ]
+            }
+          },
+          "eps": {
+            "value": 0.36,
+            "unit": "Per Share",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-08-05",
+                "quote": "Basic | Three months ended June 30, - 2026: 0.36"
+              }
+            ]
+          },
+          "free_cash_flow": {
+            "value": 14600000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "FCFA2S | Jun. 30 2026: 14.6"
+              }
+            ]
+          },
+          "net_income": {
+            "value": 47326000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-08-05",
+                "quote": "Net income (loss) | Three months ended June 30, - 2026: 47,326"
+              }
+            ]
+          },
+          "net_income_change_pct": {
+            "value": 0.043,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Equity holders of Topicus | Period-Over- Period Change - €%: 4.3"
+              }
+            ]
+          },
+          "operating_cash_flow": {
+            "value": -12700000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Net cash flows from operating activities | Three months ended June 30, - 2026: (12.7)"
+              }
+            ]
+          },
+          "operating_cash_flow_change_pct": {
+            "value": 0.023,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Net cash flows from operating activities | Period-Over- Period Change - €%: 2.3"
+              }
+            ]
+          },
+          "revenue": {
+            "value": 437251000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-08-05",
+                "quote": "Revenue | Topicus Coop: 437,251"
+              }
+            ]
+          },
+          "revenue_change_pct": {
+            "value": 0.04,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "Revenue | Jun. 30 2026: 4%"
+              }
+            ]
+          },
+          "revenue_change_pct_ex_fx": {
+            "value": 0.04,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "| Organic Growth: 4%"
+              }
+            ]
+          },
+          "acquisitions": {
+            "value": -31223000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-08-05",
+                "quote": "Acquisition of businesses (note 4) | Three months ended June 30, - 2026: (31,223)"
+              }
+            ]
+          },
+          "fcfa2s_change_pct": {
+            "value": 0.313,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Free cash flow available to shareholders | Period-Over- Period Change - €%: 31.3"
+              }
+            ]
+          },
+          "organic_growth_change_pct": {
+            "value": 0.04,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "text",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "the Company experienced organic growth of 4% and 5% respectively"
+              }
+            ]
+          },
+          "hardware_and_other_revenue": {
+            "value": 11209000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-08-05",
+                "quote": "Hardware and other | Three months ended June 30, - 2026: 11,209"
+              }
+            ]
+          },
+          "hardware_and_other_revenue_change_pct": {
+            "value": 0.32,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Hardware and other | % Change: 32%"
+              }
+            ]
+          },
+          "hardware_and_other_revenue_change_pct_ex_fx": {
+            "value": 0.19,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Hardware and other | Organic Growth: 19%"
+              }
+            ]
+          },
+          "licenses_revenue": {
+            "value": 9854000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-08-05",
+                "quote": "License | Three months ended June 30, - 2026: 9,854"
+              }
+            ]
+          },
+          "licenses_revenue_change_pct": {
+            "value": -0.1,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Licenses | Jun. 30 2026: -10%"
+              }
+            ]
+          },
+          "licenses_revenue_change_pct_ex_fx": {
+            "value": -0.1,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Licenses | Organic Growth: -10%"
+              }
+            ]
+          },
+          "maintenance_and_other_recurring_revenue": {
+            "value": 317343000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-08-05",
+                "quote": "Maintenance and other recurring | Three months ended June 30, - 2026: 317,343"
+              }
+            ]
+          },
+          "maintenance_and_other_recurring_revenue_change_pct": {
+            "value": 0.2,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Maintenance and other recurring | % Change: 20%"
+              }
+            ]
+          },
+          "maintenance_and_other_recurring_revenue_change_pct_ex_fx": {
+            "value": 0.06,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Maintenance and other recurring | Organic Growth: 6%"
+              }
+            ]
+          },
+          "professional_services_revenue": {
+            "value": 98845000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-08-05",
+                "quote": "Professional services | Three months ended June 30, - 2026: 98,845"
+              }
+            ]
+          },
+          "professional_services_revenue_change_pct": {
+            "value": 0.12,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Professional services | % Change: 12%"
+              }
+            ]
+          },
+          "professional_services_revenue_change_pct_ex_fx": {
+            "value": -0.01,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Professional services | Organic Growth: -1%"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "periodId": "toi_SemiAnnual_2026-06-30",
+        "periodType": "SemiAnnual",
+        "reportDate": "2026-06-30",
+        "periodDuration": "6 Months",
+        "calendarYear": 2026,
+        "calendarQuarter": 2,
+        "fiscalYear": 2026,
+        "fiscalQuarter": 2,
+        "earningsDate": null,
+        "earningsTimeOfDay": null,
+        "lastSourceFilingDate": "2026-08-05",
+        "lastSourceFilingTimeOfDay": null,
+        "isRestated": null,
+        "metricValues": {
+          "eps": {
+            "value": 0.77,
+            "unit": "Per Share",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-08-05",
+                "quote": "Diluted | Six months ended June 30, - 2026: 0.77"
+              }
+            ]
+          },
+          "eps_change_pct": {
+            "value": -0.09,
+            "unit": "Per Share",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Basic | % Change: -9%"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "periodId": "toi_PointInTime_2026-06-30",
+        "periodType": "PointInTime",
+        "reportDate": "2026-06-30",
+        "periodDuration": "Point in time",
+        "calendarYear": 2026,
+        "calendarQuarter": 2,
+        "fiscalYear": 2026,
+        "fiscalQuarter": null,
+        "earningsDate": null,
+        "earningsTimeOfDay": null,
+        "lastSourceFilingDate": "2026-08-05",
+        "lastSourceFilingTimeOfDay": null,
+        "isRestated": null,
+        "metricValues": {
+          "cash": {
+            "value": 323269000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-08-05",
+                "quote": "Cash | June 30, 2026: 323,269"
+              }
+            ]
+          },
+          "debt": {
+            "value": 467700000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Debt | June 30, 2026: 467.7"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "periodId": "toi_Quarterly_2026-03-31",
+        "periodType": "Quarterly",
+        "reportDate": "2026-03-31",
+        "periodDuration": "3 Months",
+        "calendarYear": 2026,
+        "calendarQuarter": 1,
+        "fiscalYear": 2026,
+        "fiscalQuarter": 1,
+        "earningsDate": null,
+        "earningsTimeOfDay": null,
+        "lastSourceFilingDate": "2026-11-04",
+        "lastSourceFilingTimeOfDay": null,
+        "isRestated": null,
+        "metricValues": {
+          "capex": {
+            "value": 3236000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-05-05",
+                "quote": "Property and equipment purchased | Three months ended March 31, - 2026: (3,236)"
+              }
+            ]
+          },
+          "eps": {
+            "value": 0.41,
+            "unit": "Per Share",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-05-05",
+                "quote": "Basic | Three months ended March 31, - 2026: 0.41"
+              }
+            ]
+          },
+          "free_cash_flow": {
+            "value": 165400000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "FCFA2S | Mar. 31 2026: 165.4"
+              }
+            ]
+          },
+          "net_income": {
+            "value": 55062000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-05-05",
+                "quote": "Net income (loss) | Three months ended March 31, - 2026: 55,062"
+              }
+            ]
+          },
+          "net_income_change_pct": {
+            "value": -0.106,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-05-05",
+                "quote": "Equity holders of Topicus | Period-Over-Period Change - €%: (10.6)"
+              }
+            ]
+          },
+          "operating_cash_flow": {
+            "value": 280500000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-05-05",
+                "quote": "Net cash flows from operating activities | Three months ended March 31, - 2026: 280.5"
+              }
+            ]
+          },
+          "operating_cash_flow_change_pct": {
+            "value": 0.09,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-05-05",
+                "quote": "Net cash flows from operating activities | Period-Over-Period Change - €%: 9.0"
+              }
+            ]
+          },
+          "operating_income": {
+            "value": 64395000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-05-05",
+                "quote": "| Three months ended March 31, - 2026: 64,395"
+              }
+            ]
+          },
+          "revenue": {
+            "value": 435688000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-05-05",
+                "quote": "| Three months ended March 31, - 2026: 435,688"
+              }
+            ]
+          },
+          "revenue_change_pct": {
+            "value": 0.05,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "Revenue | Mar. 31 2026: 5%"
+              }
+            ]
+          },
+          "revenue_change_pct_ex_fx": {
+            "value": 0.05,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-05-05",
+                "quote": "| Organic Growth - %: 5%"
+              }
+            ]
+          },
+          "acquisitions": {
+            "value": -15028000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-05-05",
+                "quote": "Acquisition of businesses (note 4) | Three months ended March 31, - 2026: (15,028)"
+              }
+            ]
+          },
+          "fcfa2s_change_pct": {
+            "value": 0.037,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-05-05",
+                "quote": "Free cash flow available to shareholders | Period-Over-Period Change - €%: 3.7"
+              }
+            ]
+          },
+          "organic_growth_change_pct": {
+            "value": 0.05,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "text",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-05-05",
+                "quote": "the Company experienced organic growth of 5% in the quarter"
+              }
+            ]
+          },
+          "hardware_and_other_revenue": {
+            "value": 9885000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-05-05",
+                "quote": "Hardware and other | Three months ended March 31, - 2026: 9,885"
+              }
+            ]
+          },
+          "hardware_and_other_revenue_change_pct": {
+            "value": 0.13,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Hardware and other | Mar. 31 2026: 13%"
+              }
+            ]
+          },
+          "hardware_and_other_revenue_change_pct_ex_fx": {
+            "value": 0.13,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-05-05",
+                "quote": "Hardware and other | Organic Growth - %: 13%"
+              }
+            ]
+          },
+          "licenses_revenue": {
+            "value": 11518000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-05-05",
+                "quote": "License | Three months ended March 31, - 2026: 11,518"
+              }
+            ]
+          },
+          "licenses_revenue_change_pct": {
+            "value": 0.16,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Licenses | Mar. 31 2026: 16%"
+              }
+            ]
+          },
+          "licenses_revenue_change_pct_ex_fx": {
+            "value": 0.16,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-05-05",
+                "quote": "Licenses | Organic Growth - %: 16%"
+              }
+            ]
+          },
+          "maintenance_and_other_recurring_revenue": {
+            "value": 316064000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-05-05",
+                "quote": "Maintenance and other recurring | Three months ended March 31, - 2026: 316,064"
+              }
+            ]
+          },
+          "maintenance_and_other_recurring_revenue_change_pct": {
+            "value": 0.595,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-05-05",
+                "quote": "Maintenance and other recurring | Period-Over- Period Change - €%: 59.5"
+              }
+            ]
+          },
+          "maintenance_and_other_recurring_revenue_change_pct_ex_fx": {
+            "value": 0.07,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-05-05",
+                "quote": "Maintenance and other recurring | Organic Growth - %: 7%"
+              }
+            ]
+          },
+          "professional_services_revenue": {
+            "value": 98221000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-05-05",
+                "quote": "Professional services | Three months ended March 31, - 2026: 98,221"
+              }
+            ]
+          },
+          "professional_services_revenue_change_pct": {
+            "value": 0.159,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-05-05",
+                "quote": "Professional services | Period-Over- Period Change - €%: 15.9"
+              }
+            ]
+          },
+          "professional_services_revenue_change_pct_ex_fx": {
+            "value": -0.01,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-05-05",
+                "quote": "Professional services | Organic Growth - %: -1%"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "periodId": "toi_PointInTime_2026-03-31",
+        "periodType": "PointInTime",
+        "reportDate": "2026-03-31",
+        "periodDuration": "Point in time",
+        "calendarYear": 2026,
+        "calendarQuarter": 1,
+        "fiscalYear": 2026,
+        "fiscalQuarter": null,
+        "earningsDate": null,
+        "earningsTimeOfDay": null,
+        "lastSourceFilingDate": "2026-05-05",
+        "lastSourceFilingTimeOfDay": null,
+        "isRestated": null,
+        "metricValues": {
+          "cash": {
+            "value": 331173000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-05-05",
+                "quote": "Cash | March 31, 2026: 331,173"
+              }
+            ]
+          },
+          "debt": {
+            "value": 448600000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-05-05",
+                "quote": "Debt | March 31, 2026: 448.6"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "periodId": "toi_Quarterly_2025-12-31",
+        "periodType": "Quarterly",
+        "reportDate": "2025-12-31",
+        "periodDuration": "3 Months",
+        "calendarYear": 2025,
+        "calendarQuarter": 4,
+        "fiscalYear": 2025,
+        "fiscalQuarter": 4,
+        "earningsDate": null,
+        "earningsTimeOfDay": null,
+        "lastSourceFilingDate": "2026-11-04",
+        "lastSourceFilingTimeOfDay": null,
+        "isRestated": null,
+        "metricValues": {
+          "capex": {
+            "value": 2300000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Property and equipment purchased | : (2.3)"
+              }
+            ]
+          },
+          "eps": {
+            "value": 0.59,
+            "unit": "Per Share",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "| Three months ended December 31, - 2025: 0.59"
+              }
+            ]
+          },
+          "free_cash_flow": {
+            "value": 51200000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "FCFA2S | Dec. 31 2025: 51.2"
+              }
+            ]
+          },
+          "net_income": {
+            "value": 79400000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "Net income | Dec. 31 2025: 79.4"
+              }
+            ]
+          },
+          "net_income_change_pct": {
+            "value": 0.158,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Equity holders of Topicus | Period-Over- Period Change - €%: 15.8"
+              }
+            ]
+          },
+          "operating_cash_flow": {
+            "value": 107700000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Net cash flows from operating activities | Three months ended December 31, - 2025: 107.7"
+              }
+            ]
+          },
+          "operating_cash_flow_change_pct": {
+            "value": 0.35,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "text",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "representing an increase of 35%"
+              }
+            ]
+          },
+          "revenue": {
+            "value": 436800000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "Revenue | Dec. 31 2025: 436.8"
+              }
+            ]
+          },
+          "revenue_change_pct": {
+            "value": 0.04,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "Revenue | Dec. 31 2025: 4%"
+              }
+            ]
+          },
+          "acquisitions": {
+            "value": -49908000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "derived",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-financial-statements",
+                "filedOn": "2026-02-25",
+                "quote": "Acquisition of businesses (note 4) | Year ended December 31, - 2025: (311,003)"
+              },
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-11-04",
+                "quote": "Acquisition of businesses (note 4) | 2025: (261,095)"
+              }
+            ],
+            "derivation": {
+              "method": "period-difference",
+              "description": "FY 2025 minus 9M 2025",
+              "inputs": [
+                {
+                  "periodLabel": "FY 2025",
+                  "amount": "-311003000"
+                },
+                {
+                  "periodLabel": "9M 2025",
+                  "amount": "-261095000"
+                }
+              ]
+            }
+          },
+          "fcfa2s_change_pct": {
+            "value": 0.146,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Free cash flow available to shareholders | Period-Over- Period Change - €%: 14.6"
+              }
+            ]
+          },
+          "organic_growth_change_pct": {
+            "value": 0.04,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "text",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "the Company experienced organic growth of 4% for both periods"
+              }
+            ]
+          },
+          "hardware_and_other_revenue": {
+            "value": 16700000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Hardware and other | 2025 Three months ended December 31, Period: 16.7"
+              }
+            ]
+          },
+          "hardware_and_other_revenue_change_pct": {
+            "value": 0.05,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Hardware and other | Dec. 31 2025: 5%"
+              }
+            ]
+          },
+          "licenses_revenue": {
+            "value": 15200000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Licenses | 2025 Three months ended December 31, Period: 15.2"
+              }
+            ]
+          },
+          "licenses_revenue_change_pct": {
+            "value": -0.17,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Licenses | Dec. 31 2025: -17%"
+              }
+            ]
+          },
+          "maintenance_and_other_recurring_revenue": {
+            "value": 298000000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Maintenance and other recurring | 2025 Three months ended December 31, Period: 298.0"
+              }
+            ]
+          },
+          "maintenance_and_other_recurring_revenue_change_pct": {
+            "value": 0.06,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Maintenance and other recurring | Dec. 31 2025: 6%"
+              }
+            ]
+          },
+          "professional_services_revenue_change_pct": {
+            "value": 0,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Professional services | Dec. 31 2025: 0%"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "periodId": "toi_Annual_2025-12-31",
+        "periodType": "Annual",
+        "reportDate": "2025-12-31",
+        "periodDuration": "12 Months",
+        "calendarYear": 2025,
+        "calendarQuarter": 4,
+        "fiscalYear": 2025,
+        "fiscalQuarter": 4,
+        "earningsDate": null,
+        "earningsTimeOfDay": null,
+        "lastSourceFilingDate": "2026-02-25",
+        "lastSourceFilingTimeOfDay": null,
+        "isRestated": null,
+        "metricValues": {
+          "capex": {
+            "value": 10653000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-financial-statements",
+                "filedOn": "2026-02-25",
+                "quote": "Property and equipment purchased | Year ended December 31, - 2025: (10,653)"
+              }
+            ]
+          },
+          "eps": {
+            "value": 0.5,
+            "unit": "Per Share",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-financial-statements",
+                "filedOn": "2026-02-25",
+                "quote": "Diluted | Year ended December 31, - 2025: 0.50"
+              }
+            ]
+          },
+          "free_cash_flow": {
+            "value": 218700000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Free cash flow available to shareholders | : 218.7"
+              }
+            ]
+          },
+          "net_income": {
+            "value": 70060000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-financial-statements",
+                "filedOn": "2026-02-25",
+                "quote": "Net income (loss) | Year ended December 31, - 2025: 70,060"
+              }
+            ]
+          },
+          "net_income_change_pct": {
+            "value": -0.502,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Equity holders of Topicus | Period-Over-Period - € Change%: (50.2)"
+              }
+            ]
+          },
+          "operating_cash_flow": {
+            "value": 412700000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Net cash flows from operating activities | : 412.7"
+              }
+            ]
+          },
+          "operating_cash_flow_change_pct": {
+            "value": 0.65,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Net cash flows from operating activities | Period-Over-Period - € Change%: 65.0"
+              }
+            ]
+          },
+          "revenue": {
+            "value": 1552302000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-financial-statements",
+                "filedOn": "2026-02-25",
+                "quote": "Revenue | Topicus Coop: 1,552,302"
+              }
+            ]
+          },
+          "revenue_change_pct": {
+            "value": 0.2,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "| € % Period-Over- Period Change: 20%"
+              }
+            ]
+          },
+          "acquisitions": {
+            "value": -311003000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-financial-statements",
+                "filedOn": "2026-02-25",
+                "quote": "Acquisition of businesses (note 4) | Year ended December 31, - 2025: (311,003)"
+              }
+            ]
+          },
+          "fcfa2s_change_pct": {
+            "value": 0.413,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Free cash flow available to shareholders | Period-Over-Period - € Change%: 41.3"
+              }
+            ]
+          },
+          "organic_growth_change_pct": {
+            "value": 0.04,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "text",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "the Company experienced organic growth of 4% for both periods"
+              }
+            ]
+          },
+          "geography_nl_revenue": {
+            "value": 689253000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-financial-statements",
+                "filedOn": "2026-02-25",
+                "quote": "Revenue | The Netherlands: 689,253"
+              }
+            ]
+          },
+          "geography_row_revenue": {
+            "value": 863049000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-financial-statements",
+                "filedOn": "2026-02-25",
+                "quote": "Revenue | Rest of World: 863,049"
+              }
+            ]
+          },
+          "hardware_and_other_revenue": {
+            "value": 39410000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-financial-statements",
+                "filedOn": "2026-02-25",
+                "quote": "Hardware and other | Year ended December 31, - 2025: 39,410"
+              }
+            ]
+          },
+          "hardware_and_other_revenue_change_pct": {
+            "value": 0.59,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Hardware and other | € % Period-Over- Period Change: 59%"
+              }
+            ]
+          },
+          "licenses_revenue": {
+            "value": 43891000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-financial-statements",
+                "filedOn": "2026-02-25",
+                "quote": "License | Year ended December 31, - 2025: 43,891"
+              }
+            ]
+          },
+          "licenses_revenue_change_pct": {
+            "value": -0.04,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Licenses | Organic Growth %: -4%"
+              }
+            ]
+          },
+          "maintenance_and_other_recurring_revenue": {
+            "value": 1097066000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-financial-statements",
+                "filedOn": "2026-02-25",
+                "quote": "Maintenance and other recurring | Year ended December 31, - 2025: 1,097,066"
+              }
+            ]
+          },
+          "maintenance_and_other_recurring_revenue_change_pct": {
+            "value": 0.22,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Maintenance and other recurring | € % Period-Over- Period Change: 22%"
+              }
+            ]
+          },
+          "professional_services_revenue": {
+            "value": 371935000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-financial-statements",
+                "filedOn": "2026-02-25",
+                "quote": "Professional services | Year ended December 31, - 2025: 371,935"
+              }
+            ]
+          },
+          "professional_services_revenue_change_pct": {
+            "value": 0.14,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Professional services | € % Period-Over- Period Change: 14%"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "periodId": "toi_PointInTime_2025-12-31",
+        "periodType": "PointInTime",
+        "reportDate": "2025-12-31",
+        "periodDuration": "Point in time",
+        "calendarYear": 2025,
+        "calendarQuarter": 4,
+        "fiscalYear": 2025,
+        "fiscalQuarter": null,
+        "earningsDate": null,
+        "earningsTimeOfDay": null,
+        "lastSourceFilingDate": "2026-11-04",
+        "lastSourceFilingTimeOfDay": null,
+        "isRestated": null,
+        "metricValues": {
+          "cash": {
+            "value": 326686000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-11-04",
+                "quote": "Cash | December 31, 2025: 326,686"
+              }
+            ]
+          },
+          "debt": {
+            "value": 692500000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "Debt | December 31, 2025: 692.5"
+              }
+            ]
+          },
+          "net_debt": {
+            "value": -365900000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": true,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "Cash less Debt | December 31, 2025: (365.9)"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "periodId": "toi_Quarterly_2025-09-30",
+        "periodType": "Quarterly",
+        "reportDate": "2025-09-30",
+        "periodDuration": "3 Months",
+        "calendarYear": 2025,
+        "calendarQuarter": 3,
+        "fiscalYear": 2025,
+        "fiscalQuarter": 3,
+        "earningsDate": null,
+        "earningsTimeOfDay": null,
+        "lastSourceFilingDate": "2026-11-04",
+        "lastSourceFilingTimeOfDay": null,
+        "isRestated": null,
+        "metricValues": {
+          "capex": {
+            "value": 1653000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-11-04",
+                "quote": "Property and equipment purchased | 2025: (1,653)"
+              }
+            ]
+          },
+          "eps": {
+            "value": -0.94,
+            "unit": "Per Share",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-11-04",
+                "quote": "Basic | 2025: (0.94)"
+              }
+            ]
+          },
+          "free_cash_flow": {
+            "value": 22300000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "FCFA2S | Sep. 30 2025: 22.3"
+              }
+            ]
+          },
+          "net_income": {
+            "value": -120940000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-11-04",
+                "quote": "Net income (loss) | 2025: (120,940)"
+              }
+            ]
+          },
+          "operating_cash_flow": {
+            "value": 48400000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "Net cash flows from operating activities | 2025: 48.4"
+              }
+            ]
+          },
+          "revenue": {
+            "value": 387888000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-11-04",
+                "quote": "| 2025: 387,888"
+              }
+            ]
+          },
+          "revenue_change_pct": {
+            "value": 0.03,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "Revenue | Sep. 30 2025: 3%"
+              }
+            ]
+          },
+          "acquisitions": {
+            "value": -11437000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-11-04",
+                "quote": "Acquisition of businesses (note 4) | 2025: (11,437)"
+              }
+            ]
+          },
+          "hardware_and_other_revenue": {
+            "value": 6875000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-11-04",
+                "quote": "Hardware and other | 2025: 6,875"
+              }
+            ]
+          },
+          "hardware_and_other_revenue_change_pct": {
+            "value": 0.14,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Hardware and other | Sep. 30 2025: 14%"
+              }
+            ]
+          },
+          "licenses_revenue_change_pct": {
+            "value": -0.06,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Licenses | Sep. 30 2025: -6%"
+              }
+            ]
+          },
+          "maintenance_and_other_recurring_revenue": {
+            "value": 277574000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-11-04",
+                "quote": "Maintenance and other recurring | 2025: 277,574"
+              }
+            ]
+          },
+          "maintenance_and_other_recurring_revenue_change_pct": {
+            "value": 0.06,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Maintenance and other recurring | Sep. 30 2025: 6%"
+              }
+            ]
+          },
+          "professional_services_revenue": {
+            "value": 94545000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-11-04",
+                "quote": "Professional services | 2025: 94,545"
+              }
+            ]
+          },
+          "professional_services_revenue_change_pct": {
+            "value": -0.03,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Professional services | Sep. 30 2025: -3%"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "periodId": "toi_NineMonths_2025-09-30",
+        "periodType": "NineMonths",
+        "reportDate": "2025-09-30",
+        "periodDuration": "9 Months",
+        "calendarYear": 2025,
+        "calendarQuarter": 3,
+        "fiscalYear": 2025,
+        "fiscalQuarter": 3,
+        "earningsDate": null,
+        "earningsTimeOfDay": null,
+        "lastSourceFilingDate": "2026-11-04",
+        "lastSourceFilingTimeOfDay": null,
+        "isRestated": null,
+        "metricValues": {
+          "eps": {
+            "value": -0.09,
+            "unit": "Per Share",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-11-04",
+                "quote": "Basic | 2025: (0.09)"
+              }
+            ]
+          },
+          "free_cash_flow": {
+            "value": 167500000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "Free cash flow available to shareholders | 2025: 167.5"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "periodId": "toi_PointInTime_2025-09-30",
+        "periodType": "PointInTime",
+        "reportDate": "2025-09-30",
+        "periodDuration": "Point in time",
+        "calendarYear": 2025,
+        "calendarQuarter": 3,
+        "fiscalYear": 2025,
+        "fiscalQuarter": null,
+        "earningsDate": null,
+        "earningsTimeOfDay": null,
+        "lastSourceFilingDate": "2026-11-04",
+        "lastSourceFilingTimeOfDay": null,
+        "isRestated": null,
+        "metricValues": {
+          "cash": {
+            "value": 276061000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-11-04",
+                "quote": "Cash, end of period | 2025: 276,061"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "periodId": "toi_Quarterly_2025-06-30",
+        "periodType": "Quarterly",
+        "reportDate": "2025-06-30",
+        "periodDuration": "3 Months",
+        "calendarYear": 2025,
+        "calendarQuarter": 2,
+        "fiscalYear": 2025,
+        "fiscalQuarter": 2,
+        "earningsDate": null,
+        "earningsTimeOfDay": null,
+        "lastSourceFilingDate": "2026-11-04",
+        "lastSourceFilingTimeOfDay": null,
+        "isRestated": null,
+        "metricValues": {
+          "capex": {
+            "value": 3768000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-08-05",
+                "quote": "Property and equipment purchased | 2025: (3,768)"
+              }
+            ]
+          },
+          "eps": {
+            "value": 0.31,
+            "unit": "Per Share",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-08-05",
+                "quote": "Basic | 2025: 0.31"
+              }
+            ]
+          },
+          "free_cash_flow": {
+            "value": -16700000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "FCFA2S | Jun. 30 2025 (Note 1): (16.7)"
+              }
+            ]
+          },
+          "net_income": {
+            "value": 41484000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-08-05",
+                "quote": "Net income (loss) | 2025: 41,484"
+              }
+            ]
+          },
+          "operating_cash_flow": {
+            "value": -14900000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Net cash flows from operating activities | 2025: (14.9)"
+              }
+            ]
+          },
+          "revenue": {
+            "value": 372032000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-08-05",
+                "quote": "Revenue | (excluding Three months ended June 30, 2025 / Topicus Coop: 372,032"
+              }
+            ]
+          },
+          "revenue_change_pct": {
+            "value": 0.05,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "Revenue | Jun. 30 2025: 5%"
+              }
+            ]
+          },
+          "acquisitions": {
+            "value": -210244000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-08-05",
+                "quote": "Acquisition of businesses (note 4) | 2025: (210,244)"
+              }
+            ]
+          },
+          "hardware_and_other_revenue": {
+            "value": 8471000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-08-05",
+                "quote": "Hardware and other | 2025: 8,471"
+              }
+            ]
+          },
+          "hardware_and_other_revenue_change_pct": {
+            "value": 0.33,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Hardware and other | Jun. 30 2025: 33%"
+              }
+            ]
+          },
+          "licenses_revenue_change_pct": {
+            "value": 0.19,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Licenses | Jun. 30 2025: 19%"
+              }
+            ]
+          },
+          "maintenance_and_other_recurring_revenue": {
+            "value": 264907000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-08-05",
+                "quote": "Maintenance and other recurring | 2025: 264,907"
+              }
+            ]
+          },
+          "maintenance_and_other_recurring_revenue_change_pct": {
+            "value": 0.07,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Maintenance and other recurring | Jun. 30 2025: 7%"
+              }
+            ]
+          },
+          "professional_services_revenue": {
+            "value": 88218000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-08-05",
+                "quote": "Professional services | 2025: 88,218"
+              }
+            ]
+          },
+          "professional_services_revenue_change_pct": {
+            "value": -0.04,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Professional services | Jun. 30 2025: -4%"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "periodId": "toi_SemiAnnual_2025-06-30",
+        "periodType": "SemiAnnual",
+        "reportDate": "2025-06-30",
+        "periodDuration": "6 Months",
+        "calendarYear": 2025,
+        "calendarQuarter": 2,
+        "fiscalYear": 2025,
+        "fiscalQuarter": 2,
+        "earningsDate": null,
+        "earningsTimeOfDay": null,
+        "lastSourceFilingDate": "2026-08-05",
+        "lastSourceFilingTimeOfDay": null,
+        "isRestated": null,
+        "metricValues": {
+          "eps": {
+            "value": 0.85,
+            "unit": "Per Share",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-08-05",
+                "quote": "Diluted | 2025: 0.85"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "periodId": "toi_PointInTime_2025-06-30",
+        "periodType": "PointInTime",
+        "reportDate": "2025-06-30",
+        "periodDuration": "Point in time",
+        "calendarYear": 2025,
+        "calendarQuarter": 2,
+        "fiscalYear": 2025,
+        "fiscalQuarter": null,
+        "earningsDate": null,
+        "earningsTimeOfDay": null,
+        "lastSourceFilingDate": "2026-08-05",
+        "lastSourceFilingTimeOfDay": null,
+        "isRestated": null,
+        "metricValues": {
+          "cash": {
+            "value": 249254000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-08-05",
+                "quote": "Cash, end of period | 2025: 249,254"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "periodId": "toi_Quarterly_2025-03-31",
+        "periodType": "Quarterly",
+        "reportDate": "2025-03-31",
+        "periodDuration": "3 Months",
+        "calendarYear": 2025,
+        "calendarQuarter": 1,
+        "fiscalYear": 2025,
+        "fiscalQuarter": 1,
+        "earningsDate": null,
+        "earningsTimeOfDay": null,
+        "lastSourceFilingDate": "2026-11-04",
+        "lastSourceFilingTimeOfDay": null,
+        "isRestated": null,
+        "metricValues": {
+          "capex": {
+            "value": 2898000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-05-05",
+                "quote": "Property and equipment purchased | 2025: (2,898)"
+              }
+            ]
+          },
+          "eps": {
+            "value": 0.54,
+            "unit": "Per Share",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-05-05",
+                "quote": "Basic | 2025: 0.54"
+              }
+            ]
+          },
+          "free_cash_flow": {
+            "value": 161700000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "FCFA2S | Mar. 31 2025: 161.7"
+              }
+            ]
+          },
+          "net_income": {
+            "value": 70129000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-05-05",
+                "quote": "Net income (loss) | 2025: 70,129"
+              }
+            ]
+          },
+          "operating_cash_flow": {
+            "value": 271400000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-05-05",
+                "quote": "Net cash flows from operating activities | 2025: 271.4"
+              }
+            ]
+          },
+          "operating_income": {
+            "value": 80005000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-05-05",
+                "quote": "| 2025: 80,005"
+              }
+            ]
+          },
+          "revenue": {
+            "value": 355595000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-05-05",
+                "quote": "Revenue | Topicus Coop: 355,595"
+              }
+            ]
+          },
+          "revenue_change_pct": {
+            "value": 0.04,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "Revenue | Mar. 31 2025: 4%"
+              }
+            ]
+          },
+          "acquisitions": {
+            "value": -39413000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-05-05",
+                "quote": "Acquisition of businesses (note 4) | 2025: (39,413)"
+              }
+            ]
+          },
+          "hardware_and_other_revenue": {
+            "value": 7319000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-05-05",
+                "quote": "Hardware and other | 2025: 7,319"
+              }
+            ]
+          },
+          "hardware_and_other_revenue_change_pct": {
+            "value": -0.1,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Hardware and other | Mar. 31 2025: -10%"
+              }
+            ]
+          },
+          "licenses_revenue_change_pct": {
+            "value": -0.02,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Licenses | Mar. 31 2025: -2%"
+              }
+            ]
+          },
+          "maintenance_and_other_recurring_revenue": {
+            "value": 256575000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-05-05",
+                "quote": "Maintenance and other recurring | 2025: 256,575"
+              }
+            ]
+          },
+          "maintenance_and_other_recurring_revenue_change_pct": {
+            "value": 0.06,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Maintenance and other recurring | Mar. 31 2025: 6%"
+              }
+            ]
+          },
+          "professional_services_revenue": {
+            "value": 82305000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-05-05",
+                "quote": "Professional services | 2025: 82,305"
+              }
+            ]
+          },
+          "professional_services_revenue_change_pct": {
+            "value": -0.02,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Professional services | Mar. 31 2025: -2%"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "periodId": "toi_PointInTime_2025-03-31",
+        "periodType": "PointInTime",
+        "reportDate": "2025-03-31",
+        "periodDuration": "Point in time",
+        "calendarYear": 2025,
+        "calendarQuarter": 1,
+        "fiscalYear": 2025,
+        "fiscalQuarter": null,
+        "earningsDate": null,
+        "earningsTimeOfDay": null,
+        "lastSourceFilingDate": "2026-05-05",
+        "lastSourceFilingTimeOfDay": null,
+        "isRestated": null,
+        "metricValues": {
+          "cash": {
+            "value": 296307000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-financial-statements",
+                "filedOn": "2026-05-05",
+                "quote": "Cash, end of period | 2025: 296,307"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "periodId": "toi_Quarterly_2024-12-31",
+        "periodType": "Quarterly",
+        "reportDate": "2024-12-31",
+        "periodDuration": "3 Months",
+        "calendarYear": 2024,
+        "calendarQuarter": 4,
+        "fiscalYear": 2024,
+        "fiscalQuarter": 4,
+        "earningsDate": null,
+        "earningsTimeOfDay": null,
+        "lastSourceFilingDate": "2026-11-04",
+        "lastSourceFilingTimeOfDay": null,
+        "isRestated": null,
+        "metricValues": {
+          "capex": {
+            "value": 1900000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Property and equipment purchased | 2024: (1.9)"
+              }
+            ]
+          },
+          "eps": {
+            "value": 0.4,
+            "unit": "Per Share",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "| 2024: 0.40"
+              }
+            ]
+          },
+          "free_cash_flow": {
+            "value": 36600000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "FCFA2S | Dec. 31 2024: 36.6"
+              }
+            ]
+          },
+          "net_income": {
+            "value": 56200000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "Net income | Dec. 31 2024: 56.2"
+              }
+            ]
+          },
+          "operating_cash_flow": {
+            "value": 79600000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Net cash flows from operating activities | 2024: 79.6"
+              }
+            ]
+          },
+          "revenue": {
+            "value": 364900000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "Revenue | Dec. 31 2024: 364.9"
+              }
+            ]
+          },
+          "revenue_change_pct": {
+            "value": 0.05,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "Revenue | Dec. 31 2024: 5%"
+              }
+            ]
+          },
+          "hardware_and_other_revenue": {
+            "value": 9700000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Hardware and other | 2025 Three months ended December 31, Period: 9.7"
+              }
+            ]
+          },
+          "hardware_and_other_revenue_change_pct": {
+            "value": -0.04,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Hardware and other | Dec. 31 2024: -4%"
+              }
+            ]
+          },
+          "licenses_revenue": {
+            "value": 17500000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Licenses | 2025 Three months ended December 31, Period: 17.5"
+              }
+            ]
+          },
+          "licenses_revenue_change_pct": {
+            "value": 0.15,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Licenses | Dec. 31 2024: 15%"
+              }
+            ]
+          },
+          "maintenance_and_other_recurring_revenue": {
+            "value": 241400000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Maintenance and other recurring | 2025 Three months ended December 31, Period: 241.4"
+              }
+            ]
+          },
+          "maintenance_and_other_recurring_revenue_change_pct": {
+            "value": 0.06,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Maintenance and other recurring | Dec. 31 2024: 6%"
+              }
+            ]
+          },
+          "professional_services_revenue_change_pct": {
+            "value": 0.04,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Professional services | Dec. 31 2024: 4%"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "periodId": "toi_Annual_2024-12-31",
+        "periodType": "Annual",
+        "reportDate": "2024-12-31",
+        "periodDuration": "12 Months",
+        "calendarYear": 2024,
+        "calendarQuarter": 4,
+        "fiscalYear": 2024,
+        "fiscalQuarter": 4,
+        "earningsDate": null,
+        "earningsTimeOfDay": null,
+        "lastSourceFilingDate": "2026-02-25",
+        "lastSourceFilingTimeOfDay": null,
+        "isRestated": null,
+        "metricValues": {
+          "capex": {
+            "value": 8283000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-financial-statements",
+                "filedOn": "2026-02-25",
+                "quote": "Property and equipment purchased | 2024: (8,283)"
+              }
+            ]
+          },
+          "eps": {
+            "value": 1.11,
+            "unit": "Per Share",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-financial-statements",
+                "filedOn": "2026-02-25",
+                "quote": "Basic | 2024: 1.11"
+              }
+            ]
+          },
+          "free_cash_flow": {
+            "value": 177400000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Free cash flow available to shareholders | 2024: 177.4"
+              }
+            ]
+          },
+          "net_income": {
+            "value": 149470000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-financial-statements",
+                "filedOn": "2026-02-25",
+                "quote": "Net income (loss) | 2024: 149,470"
+              }
+            ]
+          },
+          "operating_cash_flow": {
+            "value": 347600000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Net cash flows from operating activities | 2024: 347.6"
+              }
+            ]
+          },
+          "revenue": {
+            "value": 1294862000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-financial-statements",
+                "filedOn": "2026-02-25",
+                "quote": "Revenue | Total: 1,294,862"
+              }
+            ]
+          },
+          "acquisitions": {
+            "value": -112952000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-financial-statements",
+                "filedOn": "2026-02-25",
+                "quote": "Acquisition of businesses (note 4) | 2024: (112,952)"
+              }
+            ]
+          },
+          "geography_nl_revenue": {
+            "value": 632116000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-financial-statements",
+                "filedOn": "2026-02-25",
+                "quote": "Revenue | The Netherlands: 632,116"
+              }
+            ]
+          },
+          "geography_row_revenue": {
+            "value": 662746000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-financial-statements",
+                "filedOn": "2026-02-25",
+                "quote": "Revenue | Rest of World: 662,746"
+              }
+            ]
+          },
+          "geography_topicus_coop_excl_geosoftware_geoactive_sygnity_revenue": {
+            "value": 1174266,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-financial-statements",
+                "filedOn": "2026-02-25",
+                "quote": "Revenue | Year ended December 31, 2024 - Topicus Coop (excluding GeoSoftware, Geoactive and Sygnity): 1,174,266"
+              }
+            ]
+          },
+          "hardware_and_other_revenue": {
+            "value": 24819000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-financial-statements",
+                "filedOn": "2026-02-25",
+                "quote": "Hardware and other | 2024: 24,819"
+              }
+            ]
+          },
+          "maintenance_and_other_recurring_revenue": {
+            "value": 899659000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-financial-statements",
+                "filedOn": "2026-02-25",
+                "quote": "Maintenance and other recurring | 2024: 899,659"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "periodId": "toi_PointInTime_2024-12-31",
+        "periodType": "PointInTime",
+        "reportDate": "2024-12-31",
+        "periodDuration": "Point in time",
+        "calendarYear": 2024,
+        "calendarQuarter": 4,
+        "fiscalYear": 2024,
+        "fiscalQuarter": null,
+        "earningsDate": null,
+        "earningsTimeOfDay": null,
+        "lastSourceFilingDate": "2026-02-25",
+        "lastSourceFilingTimeOfDay": null,
+        "isRestated": null,
+        "metricValues": {
+          "cash": {
+            "value": 206157000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-financial-statements",
+                "filedOn": "2026-02-25",
+                "quote": "Cash | December 31, 2024: 206,157"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "periodId": "toi_Quarterly_2024-09-30",
+        "periodType": "Quarterly",
+        "reportDate": "2024-09-30",
+        "periodDuration": "3 Months",
+        "calendarYear": 2024,
+        "calendarQuarter": 3,
+        "fiscalYear": 2024,
+        "fiscalQuarter": 3,
+        "earningsDate": null,
+        "earningsTimeOfDay": null,
+        "lastSourceFilingDate": "2026-11-04",
+        "lastSourceFilingTimeOfDay": null,
+        "isRestated": null,
+        "metricValues": {
+          "free_cash_flow": {
+            "value": 10400000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "FCFA2S | Quarter Ended - Sep. 30 2024: 10.4"
+              }
+            ]
+          },
+          "net_income": {
+            "value": 38000000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "Net income | Quarter Ended - Sep. 30 2024: 38.0"
+              }
+            ]
+          },
+          "revenue": {
+            "value": 312200000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "Revenue | Quarter Ended - Sep. 30 2024: 312.2"
+              }
+            ]
+          },
+          "revenue_change_pct": {
+            "value": 0.04,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-11-04",
+                "quote": "Revenue | Quarter Ended - Sep. 30 2024: 4%"
+              }
+            ]
+          },
+          "hardware_and_other_revenue_change_pct": {
+            "value": -0.04,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Hardware and other | Sep. 30 2024: -4%"
+              }
+            ]
+          },
+          "licenses_revenue_change_pct": {
+            "value": 0.04,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Licenses | Sep. 30 2024: 4%"
+              }
+            ]
+          },
+          "maintenance_and_other_recurring_revenue_change_pct": {
+            "value": 0.07,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Maintenance and other recurring | Sep. 30 2024: 7%"
+              }
+            ]
+          },
+          "professional_services_revenue_change_pct": {
+            "value": -0.02,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Professional services | Sep. 30 2024: -2%"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "periodId": "toi_Quarterly_2024-06-30",
+        "periodType": "Quarterly",
+        "reportDate": "2024-06-30",
+        "periodDuration": "3 Months",
+        "calendarYear": 2024,
+        "calendarQuarter": 2,
+        "fiscalYear": 2024,
+        "fiscalQuarter": 2,
+        "earningsDate": null,
+        "earningsTimeOfDay": null,
+        "lastSourceFilingDate": "2026-08-05",
+        "lastSourceFilingTimeOfDay": null,
+        "isRestated": null,
+        "metricValues": {
+          "free_cash_flow": {
+            "value": -3800000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "FCFA2S | Quarter Ended - Jun. 30 2024: (3.8)"
+              }
+            ]
+          },
+          "net_income": {
+            "value": 26900000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Net income | Quarter Ended - Jun. 30 2024: 26.9"
+              }
+            ]
+          },
+          "revenue": {
+            "value": 311200000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Revenue | Quarter Ended - Jun. 30 2024: 311.2"
+              }
+            ]
+          },
+          "revenue_change_pct": {
+            "value": 0.04,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Revenue | Quarter Ended - Jun. 30 2024: 4%"
+              }
+            ]
+          },
+          "hardware_and_other_revenue_change_pct": {
+            "value": -0.19,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Hardware and other | Quarter Ended - Jun. 30 2024: -19%"
+              }
+            ]
+          },
+          "licenses_revenue_change_pct": {
+            "value": -0.11,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Licenses | Quarter Ended - Jun. 30 2024: -11%"
+              }
+            ]
+          },
+          "maintenance_and_other_recurring_revenue_change_pct": {
+            "value": 0.07,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Maintenance and other recurring | Quarter Ended - Jun. 30 2024: 7%"
+              }
+            ]
+          },
+          "professional_services_revenue_change_pct": {
+            "value": -0.01,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-08-05",
+                "quote": "Professional services | Quarter Ended - Jun. 30 2024: -1%"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "periodId": "toi_Quarterly_2024-03-31",
+        "periodType": "Quarterly",
+        "reportDate": "2024-03-31",
+        "periodDuration": "3 Months",
+        "calendarYear": 2024,
+        "calendarQuarter": 1,
+        "fiscalYear": 2024,
+        "fiscalQuarter": 1,
+        "earningsDate": null,
+        "earningsTimeOfDay": null,
+        "lastSourceFilingDate": "2026-05-05",
+        "lastSourceFilingTimeOfDay": null,
+        "isRestated": null,
+        "metricValues": {
+          "free_cash_flow": {
+            "value": 133500000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-05-05",
+                "quote": "FCFA2S | Quarter Ended - Mar. 31 2024: 133.5"
+              }
+            ]
+          },
+          "net_income": {
+            "value": 28300000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-05-05",
+                "quote": "Net income | Quarter Ended - Mar. 31 2024: 28.3"
+              }
+            ]
+          },
+          "revenue": {
+            "value": 306600000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-05-05",
+                "quote": "Revenue | Quarter Ended - Mar. 31 2024: 306.6"
+              }
+            ]
+          },
+          "revenue_change_pct": {
+            "value": 0.05,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "interim-mdna",
+                "filedOn": "2026-05-05",
+                "quote": "Revenue | Quarter Ended - Mar. 31 2024: 5%"
+              }
+            ]
+          },
+          "hardware_and_other_revenue_change_pct": {
+            "value": -0.08,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Hardware and other | Mar. 31 2024: -8%"
+              }
+            ]
+          },
+          "licenses_revenue_change_pct": {
+            "value": 0.14,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Licenses | Mar. 31 2024: 14%"
+              }
+            ]
+          },
+          "maintenance_and_other_recurring_revenue_change_pct": {
+            "value": 0.08,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Maintenance and other recurring | Mar. 31 2024: 8%"
+              }
+            ]
+          },
+          "professional_services_revenue_change_pct": {
+            "value": -0.04,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Professional services | Mar. 31 2024: -4%"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "periodId": "toi_Quarterly_2023-12-31",
+        "periodType": "Quarterly",
+        "reportDate": "2023-12-31",
+        "periodDuration": "3 Months",
+        "calendarYear": 2023,
+        "calendarQuarter": 4,
+        "fiscalYear": 2023,
+        "fiscalQuarter": 4,
+        "earningsDate": null,
+        "earningsTimeOfDay": null,
+        "lastSourceFilingDate": "2026-02-25",
+        "lastSourceFilingTimeOfDay": null,
+        "isRestated": null,
+        "metricValues": {
+          "free_cash_flow": {
+            "value": 28900000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "FCFA2S | Quarter Ended - Dec. 31 2023: 28.9"
+              }
+            ]
+          },
+          "net_income": {
+            "value": 42500000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Net income | Quarter Ended - Dec. 31 2023: 42.5"
+              }
+            ]
+          },
+          "revenue": {
+            "value": 309700000,
+            "unit": "Actual",
+            "currency": "EUR",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Revenue | Quarter Ended - Dec. 31 2023: 309.7"
+              }
+            ]
+          },
+          "revenue_change_pct": {
+            "value": 0.07,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Revenue | Quarter Ended - Dec. 31 2023: 7%"
+              }
+            ]
+          },
+          "hardware_and_other_revenue_change_pct": {
+            "value": 0.11,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Hardware and other | Quarter Ended - Dec. 31 2023: 11%"
+              }
+            ]
+          },
+          "licenses_revenue_change_pct": {
+            "value": -0.09,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Licenses | Quarter Ended - Dec. 31 2023: -9%"
+              }
+            ]
+          },
+          "maintenance_and_other_recurring_revenue_change_pct": {
+            "value": 0.1,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Maintenance and other recurring | Quarter Ended - Dec. 31 2023: 10%"
+              }
+            ]
+          },
+          "professional_services_revenue_change_pct": {
+            "value": 0.02,
+            "unit": "Actual",
+            "currency": "",
+            "adjusted": false,
+            "origin": "table",
+            "sources": [
+              {
+                "source": "sedar",
+                "formType": "annual-mdna",
+                "filedOn": "2026-02-25",
+                "quote": "Professional services | Quarter Ended - Dec. 31 2023: 2%"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

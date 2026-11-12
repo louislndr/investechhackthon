@@ -20,9 +20,10 @@ export function researcher(c, fs) {
   const terms = fs.signals.slice(0, 4).map((s) => ({ term: s.label, plain: glossFor(s.key, s.label).plain }));
   const desc = c.description || `${c.name} is one of the companies in this dataset.`;
   const [first, ...rest] = desc.split(/(?<=\.)\s+/);
+  const moves = (c.events || []).slice(0, 3).map((e) => e.summary.split('. ')[0].replace(/\.$/, '')).join('. ');
   return {
     overview: first,
-    how_it_makes_money: rest.join(' ') || 'The dataset does not describe the revenue model in detail. Check the latest annual report.',
+    how_it_makes_money: rest.join(' ') || (moves ? `Recent moves: ${moves}.` : 'The dataset does not describe the revenue model in detail.'),
     key_terms: terms,
   };
 }
@@ -99,10 +100,13 @@ export function editor(c, fs, { bullOk, bearOk, kpiOut }) {
   return { headline, summary, risks, what_to_watch, picks: kpiOut?.picks };
 }
 
-export function verdictLine(c, conviction, bullOk, bearOk) {
-  if (conviction >= 62) return `The verified data leans positive on ${c.name}: ${bullOk.length > bearOk.length ? 'more of the bull case held up than the bear case' : 'the bull points that survived are the stronger ones'}.`;
-  if (conviction <= 38) return `The verified data leans negative on ${c.name}: the bear case held up better under fact-checking.`;
-  return `Mixed picture on ${c.name}. A pitch here needs a sharp thesis on the one or two KPIs that matter.`;
+export function verdictLine(c, conviction, bullOk, bearOk, ix) {
+  const where = ix ? ` for the ${ix.name} index` : '';
+  const why = bullOk[0] ? ` The strongest verified point: ${bullOk[0].title.toLowerCase()}.` : '';
+  const risk = bearOk[0] ? ` Main risk: ${bearOk[0].title.toLowerCase()}.` : '';
+  if (conviction >= 58) return `Add ${c.name}${where}. More of the case for it held up under fact-checking than the case against.${why}`;
+  if (conviction >= 42) return `Add ${c.name}${where} at a small weight. The evidence is mixed.${why}${risk}`;
+  return `Pass on ${c.name}${where} for now. The case against held up better.${risk}`;
 }
 
 // Offline stress test: split the user's thesis into claims, match each to a KPI by keywords.

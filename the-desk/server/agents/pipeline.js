@@ -8,6 +8,14 @@ import { glossFor } from '../sectors.js';
 import { LIVE, callAgent } from '../llm.js';
 import { sys, companyBlock, SCHEMAS } from './prompts.js';
 import * as mock from './mock.js';
+import { INDEXES } from '../data/onesheet.js';
+
+// Index committee call from the fact-checked conviction score.
+export function decide(conviction) {
+  if (conviction >= 58) return { call: 'add', label: 'Add to the index' };
+  if (conviction >= 42) return { call: 'small', label: 'Add at a small weight' };
+  return { call: 'pass', label: 'Pass for now' };
+}
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const SPEED = Number(process.env.MOCK_SPEED || 1);
@@ -226,13 +234,17 @@ export async function runDesk(universe, ticker, emit, { signal } = {}) {
   if (LIVE) {
     verdict = (await callAgent({ system: sys('Genesis, the CEO, signing off on the report'), user: `${ctx}\n\nEDITOR SUMMARY: ${ed.summary}\nCONVICTION SCORE (computed): ${conviction} of 100\nWrite one final line.`, schema: SCHEMAS.verdict, signal, onText: (t) => emit({ t: 'stream', agent: 'genesis', text: t }) }).catch(() => ({}))).verdict_line;
   }
-  if (!verdict || resolve(verdict, fs).rawNumbers) verdict = mock.verdictLine(c, conviction, bullOk, bearOk);
+  if (!verdict || resolve(verdict, fs).rawNumbers) verdict = mock.verdictLine(c, conviction, bullOk, bearOk, INDEXES[c.indexKey]);
   if (!LIVE) await type('genesis', `Signed off. ${verdict}`);
   status('genesis', 'done');
 
   const report = {
     ticker, company: c, sector: c.sector || universe.sector, generatedAt: new Date().toISOString(), live: LIVE,
     conviction, stance: conviction >= 62 ? 'Leaning bullish' : conviction <= 38 ? 'Leaning bearish' : 'Mixed',
+    index: INDEXES[c.indexKey] ? { key: c.indexKey, name: INDEXES[c.indexKey].name } : null,
+    decision: decide(conviction),
+    topReason: (bullOk[0] || bearOk[0])?.title || '',
+    events: (c.events || []).slice(0, 6),
     headline: ed.headline && !/\d/.test(ed.headline) ? ed.headline : mock.editor(c, fs, { bullOk, bearOk, kpiOut }).headline,
     verdict: resolve(verdict, fs),
     summary: ed.summary && !resolve(ed.summary, fs).rawNumbers ? resolve(ed.summary, fs) : resolve(mock.editor(c, fs, { bullOk, bearOk, kpiOut }).summary, fs),

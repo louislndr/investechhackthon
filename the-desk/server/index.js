@@ -14,6 +14,7 @@ const CACHE = join(here, 'cache');
 const UPLOADED = join(here, 'data/uploaded');
 const LIVE_DIR = join(here, 'data/live');
 const DEMO = join(here, 'data/demo');
+const ONESHEET = join(here, 'data/onesheet');
 mkdirSync(CACHE, { recursive: true });
 
 const hasFiles = (d) => existsSync(d) && readdirSync(d).some((f) => /\.(json|csv)$/i.test(f));
@@ -21,11 +22,12 @@ function pickDir() {
   if (process.env.DATA_DIR) return join(root, process.env.DATA_DIR);
   if (hasFiles(UPLOADED)) return UPLOADED;
   if (hasFiles(LIVE_DIR)) return LIVE_DIR;
-  return DEMO;
+  return ONESHEET;
 }
 let dataDir = pickDir();
 let universe = loadFromDir(dataDir);
-const isDemo = () => dataDir === DEMO;
+const isDemo = () => false;
+import { INDEXES } from './data/onesheet.js';
 console.log(`[desk] data: ${dataDir} (${universe.companies.length} companies, ${universe.facts.length} facts) | mode: ${LIVE ? `LIVE (${MODEL})` : 'OFFLINE (no API key)'}`);
 
 const cacheFile = (t, as) => join(CACHE, `${t.replace(/[^\w.-]/g, '_')}${as ? `@${as}` : ''}.json`);
@@ -38,12 +40,14 @@ app.use(express.json({ limit: '60mb' }));
 
 app.get('/api/universe', (req, res) => {
   const cached = {};
-  for (const c of universe.companies) { const r = readCache(c.ticker); if (r) cached[c.ticker] = { conviction: r.report.conviction, stance: r.report.stance }; }
+  for (const c of universe.companies) { const r = readCache(c.ticker); if (r) cached[c.ticker] = { conviction: r.report.conviction, stance: r.report.stance, decision: r.report.decision, topReason: r.report.topReason }; }
   const periods = [...new Set(universe.facts.map((f) => f.period))];
   res.json({
     sector: universe.sector, companies: universe.companies, live: LIVE, model: LIVE ? MODEL : null,
     demo: isDemo(), dataDir: basename(dataDir), files: universe.files, factCount: universe.facts.length,
     kpis: Object.entries(universe.kpiMeta).map(([key, m]) => ({ key, ...m })), cached, periods,
+    hasPrices: Object.keys(universe.prices).length > 0,
+    indexes: Object.entries(INDEXES).map(([key, ix]) => ({ key, name: ix.name, thesis: ix.thesis, tickers: ix.tickers.filter((t) => universe.companies.some((c) => c.ticker === t)) })).filter((ix) => ix.tickers.length),
   });
 });
 

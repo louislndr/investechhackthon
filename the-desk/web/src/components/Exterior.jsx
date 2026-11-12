@@ -120,10 +120,15 @@ function Cabs() {
 
 // ------------------------------------------------------------ the research tower
 const TW = 26, PODIUM = 12, FLOOR_H = 11;
-const TFLOORS = [['researcher'], ['kpi'], ['bull', 'bear'], ['skeptic'], ['editor'], ['genesis']];
+export const TFLOORS = [['researcher'], ['kpi'], ['bull', 'bear'], ['skeptic'], ['editor'], ['genesis']];
+// Which floor to open by default: wherever the team is working right now, else the CEO's floor.
+export function busyFloor(run) {
+  const i = TFLOORS.findIndex((ids) => ids.some((a) => run.agents[a]?.status === 'working'));
+  return i >= 0 ? i : TFLOORS.length - 1;
+}
 const TTOP = PODIUM + TFLOORS.length * FLOOR_H;
 
-function TowerFloor({ i, agents, run }) {
+function TowerFloor({ i, agents, run, hovered, onHover, onEnter }) {
   const inner = useRef();
   const st = agents.map((a) => run.agents[a]?.status || 'idle');
   const working = st.includes('working');
@@ -136,8 +141,31 @@ function TowerFloor({ i, agents, run }) {
     inner.current.emissive.set(working ? color : '#ffe1b3');
   });
   const y = PODIUM + i * FLOOR_H;
+  const edges = useMemo(() => new THREE.EdgesGeometry(new THREE.BoxGeometry(TW + 1.4, FLOOR_H - 0.4, TW + 1.4)), []);
   return (
-    <group position={[0, y, 0]}>
+    <group position={[0, y, 0]}
+      onPointerOver={(e) => { e.stopPropagation(); onHover(i); document.body.style.cursor = 'pointer'; }}
+      onPointerOut={(e) => { e.stopPropagation(); onHover((h) => (h === i ? null : h)); document.body.style.cursor = ''; }}
+      onClick={(e) => { e.stopPropagation(); onEnter(i); }}>
+      {hovered && (
+        <>
+          {agents.map((a, k) => (
+            <mesh key={a} position={[agents.length > 1 ? (k ? TW / 4 + 0.33 : -TW / 4 - 0.33) : 0, FLOOR_H / 2 + 0.6, 0]}>
+              <boxGeometry args={[agents.length > 1 ? TW / 2 + 0.65 : TW + 1.3, FLOOR_H - 0.5, TW + 1.3]} />
+              <meshBasicMaterial color={AGENTS[a].color} transparent opacity={0.42} depthWrite={false} toneMapped={false} />
+            </mesh>
+          ))}
+          <lineSegments position={[0, FLOOR_H / 2 + 0.6, 0]} geometry={edges}><lineBasicMaterial color={AGENTS[agents[0]].color} toneMapped={false} /></lineSegments>
+          <Html position={[TW / 2 + 1.5, FLOOR_H / 2 + 0.6, TW / 2]} zIndexRange={[12, 0]} style={{ pointerEvents: 'none' }}>
+            <div className="floor-hover" style={{ '--fc': AGENTS[agents[0]].color, '--fc2': AGENTS[agents[agents.length - 1]].color }}>
+              <span className="fh-no">Floor {i + 1}</span>
+              <b>{agents.map((a) => AGENTS[a].name).join(' and ')}</b>
+              <span>{st.includes('working') ? 'Working now' : st.every((x) => x === 'done') ? 'Done' : st.includes('waiting') ? 'Supervising' : AGENTS[agents[0]].role}</span>
+              <em>Go in</em>
+            </div>
+          </Html>
+        </>
+      )}
       <mesh position={[0, 0.6, 0]} castShadow receiveShadow><boxGeometry args={[TW + 0.3, 1.2, TW + 0.3]} /><meshStandardMaterial color="#d8dcdf" roughness={0.5} metalness={0.2} /></mesh>
       {/* lit interior seen through the glass */}
       <mesh position={[0, FLOOR_H / 2 + 0.6, 0]}><boxGeometry args={[TW - 1.5, FLOOR_H - 1.4, TW - 1.5]} /><meshStandardMaterial ref={inner} color="#2d3238" emissive="#ffe1b3" emissiveIntensity={0.15} roughness={1} /></mesh>
@@ -158,11 +186,12 @@ function TowerFloor({ i, agents, run }) {
 
 function ResearchTower({ run, company, onEnter }) {
   const [hover, setHover] = useState(false);
+  const [hoverFloor, setHoverFloor] = useState(null);
   const beacon = useRef();
   const running = run.status === 'running';
   useFrame((s) => { if (beacon.current) beacon.current.emissiveIntensity = Math.sin(s.clock.elapsedTime * (running ? 6 : 2)) > 0 ? 4 : 0.3; });
   return (
-    <group onClick={(e) => { e.stopPropagation(); onEnter(); }} onPointerOver={(e) => { e.stopPropagation(); setHover(true); document.body.style.cursor = 'pointer'; }} onPointerOut={() => { setHover(false); document.body.style.cursor = ''; }}>
+    <group onClick={(e) => { e.stopPropagation(); onEnter(busyFloor(run)); }} onPointerOver={(e) => { e.stopPropagation(); setHover(true); document.body.style.cursor = 'pointer'; }} onPointerOut={() => { setHover(false); document.body.style.cursor = ''; }}>
       {/* plaza */}
       <mesh position={[0, 0.15, 0]} receiveShadow><boxGeometry args={[3 * (BX + ST) - ST, 0.3, 3 * (BZ + ST) - ST]} /><meshStandardMaterial color="#cfcac0" roughness={0.9} /></mesh>
       {/* stone podium with lobby */}
@@ -170,7 +199,7 @@ function ResearchTower({ run, company, onEnter }) {
         <boxGeometry args={[TW + 8, PODIUM, TW + 8]} />
       </mesh>
       <mesh position={[0, 3.2, (TW + 8) / 2 + 0.05]}><planeGeometry args={[12, 6.2]} /><meshStandardMaterial color="#1e2a33" emissive="#ffd9a0" emissiveIntensity={0.5} roughness={0.2} metalness={0.6} /></mesh>
-      {TFLOORS.map((a, i) => <TowerFloor key={i} i={i} agents={a} run={run} />)}
+      {TFLOORS.map((a, i) => <TowerFloor key={i} i={i} agents={a} run={run} hovered={hoverFloor === i} onHover={setHoverFloor} onEnter={onEnter} />)}
       {/* crown */}
       <mesh position={[0, TTOP + 0.8, 0]} castShadow><boxGeometry args={[TW + 0.4, 1.6, TW + 0.4]} /><meshStandardMaterial color="#d8dcdf" roughness={0.5} metalness={0.2} /></mesh>
       <mesh position={[0, TTOP + 7, 0]} castShadow><boxGeometry args={[TW * 0.72, 11, TW * 0.72]} /><meshStandardMaterial color="#8ea4b5" roughness={0.08} metalness={0.85} envMapIntensity={1.6} /></mesh>
@@ -178,9 +207,9 @@ function ResearchTower({ run, company, onEnter }) {
       <mesh position={[0, TTOP + 30, 0]} castShadow><cylinderGeometry args={[0.25, 1.1, 23, 10]} /><meshStandardMaterial color="#cfd5da" metalness={0.8} roughness={0.25} /></mesh>
       <mesh position={[0, TTOP + 42, 0]}><sphereGeometry args={[0.7, 12, 10]} /><meshStandardMaterial ref={beacon} color="#ff3b30" emissive="#ff3b30" emissiveIntensity={2} /></mesh>
       <Html position={[0, PODIUM + 2, (TW + 8) / 2]} center zIndexRange={[10, 0]}>
-        <button className={`entry ${hover ? 'hover' : ''}`} onClick={(e) => { e.stopPropagation(); onEnter(); }} onPointerDown={(e) => e.stopPropagation()}>
+        <button className={`entry ${hover ? 'hover' : ''}`} onClick={(e) => { e.stopPropagation(); onEnter(busyFloor(run)); }} onPointerDown={(e) => e.stopPropagation()}>
           <b>{company?.name}</b>
-          <span>{running ? 'The team is working. Go inside' : 'Go inside'}</span>
+          <span>{running ? 'The team is working. Click a floor to go in' : 'Click a floor to go in'}</span>
         </button>
       </Html>
     </group>
