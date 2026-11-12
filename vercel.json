@@ -1,1 +1,1 @@
-{ "installCommand": "npm install", "buildCommand": "npx vite build --mode static", "outputDirectory": "dist-static" }
+{ "rootDirectory": "the-desk", "installCommand": "npm install", "buildCommand": "npx vite build --mode static", "outputDirectory": "dist-static" }
