@@ -1,0 +1,7 @@
+node_modules
+dist
+.env
+server/cache/*.json
+server/data/uploaded
+server/data/live
+dist-static
