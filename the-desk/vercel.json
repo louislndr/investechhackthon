@@ -1,0 +1,5 @@
+{
+  "buildCommand": "vite build --mode static",
+  "outputDirectory": "dist-static",
+  "installCommand": "npm install"
+}
