@@ -143,10 +143,17 @@ function TowerFloor({ i, agents, run, hovered, onHover, onEnter }) {
   const y = PODIUM + i * FLOOR_H;
   const edges = useMemo(() => new THREE.EdgesGeometry(new THREE.BoxGeometry(TW + 1.4, FLOOR_H - 0.4, TW + 1.4)), []);
   return (
-    <group position={[0, y, 0]}
-      onPointerOver={(e) => { e.stopPropagation(); onHover(i); document.body.style.cursor = 'pointer'; }}
-      onPointerOut={(e) => { e.stopPropagation(); onHover((h) => (h === i ? null : h)); document.body.style.cursor = ''; }}
-      onClick={(e) => { e.stopPropagation(); onEnter(i); }}>
+    <group position={[0, y, 0]}>
+      {/* One invisible hit box per floor. Events still reach it when another building is in front,
+          and the parent debounces leave events so the highlight never flickers. */}
+      <mesh position={[0, FLOOR_H / 2 + 0.4, 0]}
+        onPointerOver={(e) => { e.stopPropagation(); onHover(i); }}
+        onPointerMove={(e) => { e.stopPropagation(); onHover(i); }}
+        onPointerOut={() => onHover(null, i)}
+        onClick={(e) => { e.stopPropagation(); onEnter(i); }}>
+        <boxGeometry args={[TW + 1.6, FLOOR_H, TW + 1.6]} />
+        <meshBasicMaterial transparent opacity={0} depthWrite={false} />
+      </mesh>
       {hovered && (
         <>
           {agents.map((a, k) => (
@@ -186,7 +193,14 @@ function TowerFloor({ i, agents, run, hovered, onHover, onEnter }) {
 
 function ResearchTower({ run, company, onEnter }) {
   const [hover, setHover] = useState(false);
-  const [hoverFloor, setHoverFloor] = useState(null);
+  const [hoverFloor, setHoverFloorRaw] = useState(null);
+  const leaveTimer = useRef(null);
+  // Enter = immediate. Leave = after a short grace period, cancelled if the pointer comes back.
+  const setHoverFloor = (i, from) => {
+    clearTimeout(leaveTimer.current);
+    if (i != null) { setHoverFloorRaw(i); document.body.style.cursor = 'pointer'; return; }
+    leaveTimer.current = setTimeout(() => { setHoverFloorRaw((h) => (from == null || h === from ? null : h)); document.body.style.cursor = ''; }, 180);
+  };
   const beacon = useRef();
   const running = run.status === 'running';
   useFrame((s) => { if (beacon.current) beacon.current.emissiveIntensity = Math.sin(s.clock.elapsedTime * (running ? 6 : 2)) > 0 ? 4 : 0.3; });

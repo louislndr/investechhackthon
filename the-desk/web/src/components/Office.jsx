@@ -153,6 +153,36 @@ function CoffeeAndBoard() {
   );
 }
 
+// The CEO's floor: a private office, one person.
+function ExecutiveOffice({ wood }) {
+  return (
+    <group>
+      <mesh rotation-x={-Math.PI / 2} position={[0, 0.008, -0.6]} receiveShadow><planeGeometry args={[7, 5]} /><meshStandardMaterial color="#6b5a4c" roughness={0.95} /></mesh>
+      {/* sofa */}
+      <group position={[-6.5, 0, 2.5]} rotation-y={Math.PI / 2}>
+        <mesh position={[0, 0.3, 0]} castShadow><boxGeometry args={[2.6, 0.45, 0.95]} /><meshStandardMaterial color="#3d4650" roughness={0.9} /></mesh>
+        <mesh position={[0, 0.72, 0.38]} castShadow><boxGeometry args={[2.6, 0.55, 0.2]} /><meshStandardMaterial color="#3d4650" roughness={0.9} /></mesh>
+        {[-1.25, 1.25].map((x) => <mesh key={x} position={[x, 0.55, 0]} castShadow><boxGeometry args={[0.18, 0.5, 0.95]} /><meshStandardMaterial color="#353d46" /></mesh>)}
+      </group>
+      <mesh position={[-5, 0.4, 2.5]} castShadow><boxGeometry args={[1.1, 0.06, 0.7]} /><meshStandardMaterial map={wood} /></mesh>
+      <mesh position={[-5, 0.2, 2.5]}><boxGeometry args={[0.9, 0.38, 0.5]} /><meshStandardMaterial color="#2c2f33" /></mesh>
+      {/* bookshelf */}
+      <group position={[6.8, 0, 3]} rotation-y={-Math.PI / 2}>
+        <mesh position={[0, 1.1, 0]} castShadow><boxGeometry args={[2.4, 2.2, 0.4]} /><meshStandardMaterial map={wood} roughness={0.7} /></mesh>
+        {[0.45, 0.95, 1.45, 1.95].map((y, r) => Array.from({ length: 7 }, (_, k) => (
+          <mesh key={`${r}${k}`} position={[-0.95 + k * 0.3, y, 0.08]}><boxGeometry args={[0.18, 0.36, 0.26]} /><meshStandardMaterial color={['#7a2f2f', '#2e3b4e', '#3f5a48', '#c9b28a', '#4b4f55'][(r + k) % 5]} /></mesh>
+        )))}
+      </group>
+      {[[-6.8, -3.5], [6.8, -3.5], [-3, 5.5]].map(([x, z], i) => (
+        <group key={i} position={[x, 0, z]}>
+          <mesh position={[0, 0.35, 0]}><cylinderGeometry args={[0.38, 0.3, 0.7, 16]} /><meshStandardMaterial color="#e6e1d8" /></mesh>
+          <mesh position={[0, 1.4, 0]}><icosahedronGeometry args={[0.75, 1]} /><meshStandardMaterial color="#4f6b43" roughness={0.9} flatShading /></mesh>
+        </group>
+      ))}
+    </group>
+  );
+}
+
 const AISLE = [[-15.5, 2.2], [15.5, 2.2], [15.5, -2.15], [-15.5, -2.15]];
 const SIDE = [[-16.8, 9], [-16.8, -5], [-11, -5], [-11, 9]];
 
@@ -369,13 +399,17 @@ export default function Office({ run, floor, picked, onPick }) {
       <ambientLight intensity={0.35} />
       <Room />
       <View />
-      {DESKS.map(([x, z], i) => <CoworkerDesk key={i} x={x} z={z} i={i} wood={wood} empty={EMPTY.has(i)} />)}
-      <Meeting wood={wood} />
-      <CoffeeAndBoard />
-      <Walker path={AISLE} i={1} offset={0} carry="coffee" />
-      <Walker path={AISLE} i={2} offset={31} speed={0.95} carry="laptop" />
-      <Walker path={AISLE} i={5} offset={58} speed={1.15} />
-      <Walker path={SIDE} i={7} offset={5} speed={0.9} carry="coffee" />
+      {seats.some((st) => st.id === 'genesis') ? <ExecutiveOffice wood={wood} /> : (
+        <>
+          {DESKS.map(([x, z], i) => <CoworkerDesk key={i} x={x} z={z} i={i} wood={wood} empty={EMPTY.has(i)} />)}
+          <Meeting wood={wood} />
+          <CoffeeAndBoard />
+          <Walker path={AISLE} i={1} offset={0} carry="coffee" />
+          <Walker path={AISLE} i={2} offset={31} speed={0.95} carry="laptop" />
+          <Walker path={AISLE} i={5} offset={58} speed={1.15} />
+          <Walker path={SIDE} i={7} offset={5} speed={0.9} carry="coffee" />
+        </>
+      )}
       {seats.map((s) => <Workstation key={s.id} seat={s} run={run} picked={picked === s.id} onPick={clickScreen} wood={wood} />)}
       <ContactShadows position={[0, 0.01, 0]} opacity={0.45} scale={40} blur={2.2} far={3} />
       <CameraDirector controls={controls} seats={seats} zoom={zoom} />
