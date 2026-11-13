@@ -54,8 +54,8 @@ function claimFor(s, side) {
   const lagsPeers = s.vsMedian < 0 || (s.rank && s.rank > s.peerCount / 2);
   const leadsPeers = s.vsMedian > 0 || (s.rank && s.rank <= Math.ceil(s.peerCount / 3));
   let title;
-  if (side === 'bull') title = s.trend === 'improving' ? g.up : leadsPeers ? `${s.label} leads peers` : `${s.label} is holding steady`;
-  else title = s.trend === 'deteriorating' ? g.down : lagsPeers ? `${s.label} trails peers` : `${s.label} has little room to improve`;
+  if (side === 'bull') title = s.trend === 'improving' ? g.up : leadsPeers ? `${s.label} leads peers` : `${s.label} is steady`;
+  else title = s.trend === 'deteriorating' ? g.down : lagsPeers ? `${s.label} trails peers` : `${s.label} is only average`;
   return { title, text };
 }
 
