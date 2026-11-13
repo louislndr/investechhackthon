@@ -118,6 +118,46 @@ function Cabs() {
   );
 }
 
+// ------------------------------------------------------------ planes
+function Plane({ seed }) {
+  const ref = useRef();
+  const config = useMemo(() => {
+    const r = rng(seed);
+    return {
+      radius: 230 + r() * 160,
+      cx: (r() - 0.5) * 60,
+      cz: -40 + (r() - 0.5) * 40,
+      altitude: 80 + r() * 40,
+      speed: (0.028 + r() * 0.025) * (r() < 0.5 ? 1 : -1),
+      phase: r() * Math.PI * 2,
+    };
+  }, [seed]);
+
+  useFrame(({ clock }) => {
+    if (!ref.current) return;
+    const t = clock.elapsedTime * config.speed + config.phase;
+    const x = config.cx + Math.cos(t) * config.radius;
+    const z = config.cz + Math.sin(t) * config.radius;
+    const dx = -Math.sin(t) * Math.sign(config.speed);
+    const dz = Math.cos(t) * Math.sign(config.speed);
+    ref.current.position.set(x, config.altitude, z);
+    ref.current.rotation.set(0, -Math.atan2(dz, dx), config.speed > 0 ? -0.18 : 0.18);
+  });
+
+  return (
+    <group ref={ref}>
+      <mesh><boxGeometry args={[14, 1.8, 2.2]} /><meshStandardMaterial color="#e8eaec" metalness={0.5} roughness={0.4} /></mesh>
+      <mesh><boxGeometry args={[4, 0.5, 13]} /><meshStandardMaterial color="#dde0e3" metalness={0.4} roughness={0.5} /></mesh>
+      <mesh position={[-5.5, 1.1, 0]}><boxGeometry args={[2.4, 2.6, 0.5]} /><meshStandardMaterial color="#dde0e3" metalness={0.4} roughness={0.5} /></mesh>
+      <mesh position={[-5.5, 0, 0]}><boxGeometry args={[2, 0.5, 5]} /><meshStandardMaterial color="#dde0e3" metalness={0.4} roughness={0.5} /></mesh>
+    </group>
+  );
+}
+
+function Planes() {
+  return [11, 23, 37, 51, 67].map(seed => <Plane key={seed} seed={seed} />);
+}
+
 // ------------------------------------------------------------ the research tower
 const TW = 26, PODIUM = 12, FLOOR_H = 11;
 export const TFLOORS = [['researcher'], ['kpi'], ['bull', 'bear'], ['skeptic'], ['editor'], ['genesis']];
@@ -130,45 +170,55 @@ const TTOP = PODIUM + TFLOORS.length * FLOOR_H;
 
 function TowerFloor({ i, agents, run, hovered, onHover, onEnter }) {
   const inner = useRef();
+  const lerpedCol = useRef(new THREE.Color('#ffe4c8'));
+  const targetCol = useRef(new THREE.Color('#ffe4c8'));
   const st = agents.map((a) => run.agents[a]?.status || 'idle');
   const working = st.includes('working');
   const built = st.some((s) => s !== 'idle') || !!run.report;
   const color = agents.length > 1 ? (run.agents.bear?.status === 'working' && run.agents.bull?.status !== 'working' ? AGENTS.bear.color : AGENTS.bull.color) : AGENTS[agents[0]].color;
   useFrame((s, dt) => {
     if (!inner.current) return;
-    const target = working ? 1.6 + Math.sin(s.clock.elapsedTime * 4) * 0.3 : built ? 0.9 : 0.15;
-    inner.current.emissiveIntensity += (target - inner.current.emissiveIntensity) * Math.min(1, dt * 3);
-    inner.current.emissive.set(working ? color : '#ffe1b3');
+    const speed = Math.min(1, dt * 1.2);
+    const pulse = working
+      ? 5.5 + Math.sin(s.clock.elapsedTime * 2.0) * 1.8
+      : built ? 3.0 : 0.18;
+    inner.current.emissiveIntensity += (pulse - inner.current.emissiveIntensity) * speed;
+    targetCol.current.set(built ? color : '#ffe4c8');
+    lerpedCol.current.lerp(targetCol.current, speed * 0.9);
+    inner.current.emissive.copy(lerpedCol.current);
   });
   const y = PODIUM + i * FLOOR_H;
   const edges = useMemo(() => new THREE.EdgesGeometry(new THREE.BoxGeometry(TW + 1.4, FLOOR_H - 0.4, TW + 1.4)), []);
   return (
-    <group position={[0, y, 0]}
-      onPointerOver={(e) => { e.stopPropagation(); onHover(i); document.body.style.cursor = 'pointer'; }}
-      onPointerOut={(e) => { e.stopPropagation(); onHover((h) => (h === i ? null : h)); document.body.style.cursor = ''; }}
-      onClick={(e) => { e.stopPropagation(); onEnter(i); }}>
+    <group position={[0, y, 0]}>
+      <mesh position={[0, FLOOR_H / 2 + 0.4, 0]}
+        onPointerOver={(e) => { e.stopPropagation(); onHover(i); }}
+        onPointerMove={(e) => { e.stopPropagation(); onHover(i); }}
+        onPointerOut={() => onHover(null, i)}
+        onClick={(e) => { e.stopPropagation(); onEnter(i); }}>
+        <boxGeometry args={[TW + 1.6, FLOOR_H, TW + 1.6]} />
+        <meshBasicMaterial transparent opacity={0} depthWrite={false} />
+      </mesh>
+      {(hovered || working) && agents.map((a, k) => (
+        <mesh key={a} position={[agents.length > 1 ? (k ? TW / 4 + 0.33 : -TW / 4 - 0.33) : 0, FLOOR_H / 2 + 0.6, 0]}>
+          <boxGeometry args={[agents.length > 1 ? TW / 2 + 0.65 : TW + 1.3, FLOOR_H - 0.5, TW + 1.3]} />
+          <meshBasicMaterial color={AGENTS[a].color} transparent opacity={working && !hovered ? 0.52 : 0.42} depthWrite={false} toneMapped={false} />
+        </mesh>
+      ))}
+      {(hovered || working) && <lineSegments position={[0, FLOOR_H / 2 + 0.6, 0]} geometry={edges}><lineBasicMaterial color={AGENTS[agents[0]].color} toneMapped={false} /></lineSegments>}
       {hovered && (
-        <>
-          {agents.map((a, k) => (
-            <mesh key={a} position={[agents.length > 1 ? (k ? TW / 4 + 0.33 : -TW / 4 - 0.33) : 0, FLOOR_H / 2 + 0.6, 0]}>
-              <boxGeometry args={[agents.length > 1 ? TW / 2 + 0.65 : TW + 1.3, FLOOR_H - 0.5, TW + 1.3]} />
-              <meshBasicMaterial color={AGENTS[a].color} transparent opacity={0.42} depthWrite={false} toneMapped={false} />
-            </mesh>
-          ))}
-          <lineSegments position={[0, FLOOR_H / 2 + 0.6, 0]} geometry={edges}><lineBasicMaterial color={AGENTS[agents[0]].color} toneMapped={false} /></lineSegments>
-          <Html position={[TW / 2 + 1.5, FLOOR_H / 2 + 0.6, TW / 2]} zIndexRange={[12, 0]} style={{ pointerEvents: 'none' }}>
-            <div className="floor-hover" style={{ '--fc': AGENTS[agents[0]].color, '--fc2': AGENTS[agents[agents.length - 1]].color }}>
-              <span className="fh-no">Floor {i + 1}</span>
-              <b>{agents.map((a) => AGENTS[a].name).join(' and ')}</b>
-              <span>{st.includes('working') ? 'Working now' : st.every((x) => x === 'done') ? 'Done' : st.includes('waiting') ? 'Supervising' : AGENTS[agents[0]].role}</span>
-              <em>Go in</em>
-            </div>
-          </Html>
-        </>
+        <Html position={[TW / 2 + 1.5, FLOOR_H / 2 + 0.6, TW / 2]} zIndexRange={[12, 0]} style={{ pointerEvents: 'none' }}>
+          <div className="floor-hover" style={{ '--fc': AGENTS[agents[0]].color, '--fc2': AGENTS[agents[agents.length - 1]].color }}>
+            <span className="fh-no">Floor {i + 1}</span>
+            <b>{agents.map((a) => AGENTS[a].name).join(' and ')}</b>
+            <span>{st.includes('working') ? 'Working now' : st.every((x) => x === 'done') ? 'Done' : st.includes('waiting') ? 'Supervising' : AGENTS[agents[0]].role}</span>
+            <em>Go in</em>
+          </div>
+        </Html>
       )}
       <mesh position={[0, 0.6, 0]} castShadow receiveShadow><boxGeometry args={[TW + 0.3, 1.2, TW + 0.3]} /><meshStandardMaterial color="#d8dcdf" roughness={0.5} metalness={0.2} /></mesh>
       {/* lit interior seen through the glass */}
-      <mesh position={[0, FLOOR_H / 2 + 0.6, 0]}><boxGeometry args={[TW - 1.5, FLOOR_H - 1.4, TW - 1.5]} /><meshStandardMaterial ref={inner} color="#2d3238" emissive="#ffe1b3" emissiveIntensity={0.15} roughness={1} /></mesh>
+      <mesh position={[0, FLOOR_H / 2 + 0.6, 0]}><boxGeometry args={[TW - 1.5, FLOOR_H - 1.4, TW - 1.5]} /><meshStandardMaterial ref={inner} color="#2d3238" emissive="#ffe1b3" emissiveIntensity={0.4} roughness={1} /></mesh>
       {/* curtain wall */}
       <mesh position={[0, FLOOR_H / 2 + 0.6, 0]}>
         <boxGeometry args={[TW, FLOOR_H - 1.2, TW]} />
@@ -186,10 +236,16 @@ function TowerFloor({ i, agents, run, hovered, onHover, onEnter }) {
 
 function ResearchTower({ run, company, onEnter }) {
   const [hover, setHover] = useState(false);
-  const [hoverFloor, setHoverFloor] = useState(null);
+  const [hoverFloor, setHoverFloorRaw] = useState(null);
+  const leaveTimer = useRef(null);
+  const setHoverFloor = (i, from) => {
+    clearTimeout(leaveTimer.current);
+    if (i != null) { setHoverFloorRaw(i); document.body.style.cursor = 'pointer'; return; }
+    leaveTimer.current = setTimeout(() => { setHoverFloorRaw((h) => (from == null || h === from ? null : h)); document.body.style.cursor = ''; }, 180);
+  };
   const beacon = useRef();
   const running = run.status === 'running';
-  useFrame((s) => { if (beacon.current) beacon.current.emissiveIntensity = Math.sin(s.clock.elapsedTime * (running ? 6 : 2)) > 0 ? 4 : 0.3; });
+  useFrame((s) => { if (beacon.current) beacon.current.emissiveIntensity = 1.8 + Math.sin(s.clock.elapsedTime * (running ? 4.5 : 1.2)) * 1.6; });
   return (
     <group onClick={(e) => { e.stopPropagation(); onEnter(busyFloor(run)); }} onPointerOver={(e) => { e.stopPropagation(); setHover(true); document.body.style.cursor = 'pointer'; }} onPointerOut={() => { setHover(false); document.body.style.cursor = ''; }}>
       {/* plaza */}
@@ -261,6 +317,7 @@ export default function Exterior({ run, company, onEnter }) {
       <Streets />
       {city.map((b, i) => <Building key={i} b={b} />)}
       <Cabs />
+      <Planes />
       <ResearchTower run={run} company={company} onEnter={onEnter} />
       <AimOnce controls={controls} />
       <CameraControls ref={controls} makeDefault minDistance={60} maxDistance={420} minPolarAngle={0.3} maxPolarAngle={1.45} dollySpeed={0.5} />

@@ -131,8 +131,20 @@ export default function App() {
 
       <header className="hud">
         <div className="brand">
-          <div className="brand-name">The Desk</div>
-          <div className="brand-sub">{inside != null ? 'Click the computer to see what they are working on.' : 'Which Canadian companies belong in Onesheet\'s indexes, and why.'}</div>
+          <svg className="brand-logo" width="30" height="32" viewBox="0 0 30 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            {/* green bullish candle */}
+            <line x1="8" y1="2" x2="8" y2="8" stroke="#2ecc71" strokeWidth="1.5" strokeLinecap="round"/>
+            <rect x="4" y="8" width="8" height="14" rx="1.2" fill="#2ecc71"/>
+            <line x1="8" y1="22" x2="8" y2="30" stroke="#2ecc71" strokeWidth="1.5" strokeLinecap="round"/>
+            {/* red bearish candle */}
+            <line x1="22" y1="4" x2="22" y2="10" stroke="#e74c3c" strokeWidth="1.5" strokeLinecap="round"/>
+            <rect x="18" y="10" width="8" height="16" rx="1.2" fill="#e74c3c"/>
+            <line x1="22" y1="26" x2="22" y2="30" stroke="#e74c3c" strokeWidth="1.5" strokeLinecap="round"/>
+          </svg>
+          <div>
+            <div className="brand-name">The Desk</div>
+            <div className="brand-sub">{inside != null ? 'Click the computer to see what they are working on.' : 'Which Canadian companies belong in Onesheet\'s indexes, and why.'}</div>
+          </div>
         </div>
         <label className="stockpick">
           <span>Stock</span>
@@ -145,25 +157,26 @@ export default function App() {
               : universe.companies.map((c) => <option key={c.ticker} value={c.ticker}>{c.name} ({c.ticker})</option>)}
           </select>
         </label>
+        <button className="btn" onClick={() => fileRef.current?.click()}>Load data</button>
+        <input ref={fileRef} type="file" accept=".json,.csv" multiple hidden onChange={(e) => e.target.files?.length && upload(e.target.files)} />
+        {universe.indexes?.length > 0 && <button className="btn" onClick={() => setModal({ type: 'board' })}>Index board</button>}
         {inside == null
-          ? <button className="btn go" onClick={() => { const i = busyFloor(run); setInside(i); setFloor(TFLOORS[i][0]); }}>Go inside the tower</button>
+          ? <button className="btn go" onClick={() => { const i = busyFloor(run); setInside(i); setFloor(TFLOORS[i][0]); }}>Go inside</button>
           : (
             <div className="elevator">
               <button className="btn" disabled={inside >= TFLOORS.length - 1} onClick={() => { setInside(inside + 1); setFloor(TFLOORS[inside + 1][0]); }} aria-label="Up a floor">▲</button>
               <span className="elevator-floor"><b>Floor {inside + 1}</b> {TFLOORS[inside].map((a) => AGENTS[a].name).join(' and ')}</span>
               <button className="btn" disabled={inside <= 0} onClick={() => { setInside(inside - 1); setFloor(TFLOORS[inside - 1][0]); }} aria-label="Down a floor">▼</button>
-              <button className="btn go" onClick={() => setInside(null)}>Back outside</button>
+              <button className="btn go" onClick={() => setInside(null)}>Outside</button>
             </div>
           )}
-        {universe.indexes?.length > 0 && <button className="btn" onClick={() => setModal({ type: 'board' })}>Index board</button>}
-        <button className="btn quiet" onClick={() => fileRef.current?.click()}>Load Onesheet data</button>
-        <input ref={fileRef} type="file" accept=".json,.csv" multiple hidden onChange={(e) => e.target.files?.length && upload(e.target.files)} />
       </header>
 
-      <div className="hud-notes">
-        <span className="plate">{universe.live ? `Live AI agents (${universe.model})` : universe.static ? 'Offline agents, running in your browser' : 'Offline agents, no API key set'}</span>
-        <span className="plate">Data: Onesheet company profiles</span>
-      </div>
+      {universe.live && (
+        <div className="hud-notes">
+          <span className="plate">{`Live AI agents (${universe.model})`}</span>
+        </div>
+      )}
 
       {company && inside == null && (
         <OutsideCard universe={universe} company={company} run={run}

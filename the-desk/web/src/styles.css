@@ -34,10 +34,11 @@ button, select, textarea { font: inherit; color: inherit; }
 .btn.quiet { background: rgba(20, 28, 42, 0.7); }
 
 /* ---------- HUD ---------- */
-.hud { position: fixed; top: 14px; left: 14px; z-index: 20; background: rgba(16, 23, 35, 0.9); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; max-width: calc(100vw - 540px); }
-.brand { margin-right: 10px; }
-.brand-name { font-weight: 700; font-size: 26px; line-height: 1; letter-spacing: 0.01em; }
-.brand-sub { color: var(--text-2); font-size: 14px; margin-top: 3px; }
+.hud { position: fixed; top: 14px; left: 14px; z-index: 20; background: rgba(16, 23, 35, 0.9); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: flex; align-items: center; gap: 10px; flex-wrap: nowrap; max-width: calc(100vw - 500px); }
+.brand { margin-right: 6px; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.brand-logo { flex-shrink: 0; filter: drop-shadow(0 0 6px rgba(201,182,255,0.35)); }
+.brand-name { font-weight: 700; font-size: 22px; line-height: 1; letter-spacing: 0.01em; white-space: nowrap; }
+.brand-sub { display: none; }
 .stockpick { display: flex; align-items: center; gap: 8px; background: rgba(20, 28, 42, 0.8); border: 1px solid var(--line); border-radius: 6px; padding: 4px 6px 4px 12px; color: var(--text-2); font-size: 13.5px; }
 .stockpick select { background: transparent; border: 0; font-weight: 600; font-size: 15px; color: var(--text); padding: 4px; max-width: 280px; }
 .stockpick option { background: var(--slate); }
