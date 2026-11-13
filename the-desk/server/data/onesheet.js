@@ -21,9 +21,9 @@ export const INDEXES = {
 const LENSES = {
   reits: [
     { key: 'occupancy', pct: true, label: 'Occupancy', hib: true, match: [/^occupancy$/, /^committed_occupancy_pct$/, /^apartment_occupancy$/, /^industrial_occupancy$/, /^residential_suites_occupancy$/, /^committed_occupancy$/, /occupancy$/] },
-    { key: 'payout_ratio', pct: true, label: 'AFFO payout ratio', hib: false, match: [/^affo_payout_ratio$/, /^core_affo_payout_ratio$/, /^adjusted_ffo_payout_ratio$/, /^ffo_payout_ratio$/, /payout_ratio$/] },
+    { key: 'payout_ratio', pct: true, label: 'Payout ratio (FFO/AFFO)', hib: false, match: [/^affo_payout_ratio$/, /^core_affo_payout_ratio$/, /^adjusted_ffo_payout_ratio$/, /^ffo_payout_ratio$/, /payout_ratio$/] },
     { key: 'same_store_noi_growth', pct: true, label: 'Same-property NOI growth', hib: true, match: [/^same_store_noi_change_pct$/, /^same_property_noi_change_pct$/, /^commercial_same_property_noi_growth_change_pct$/, /^cash_noi_change_pct$/, /same_.*noi.*change_pct/] },
-    { key: 'leverage', label: 'Leverage (debt ratio)', hib: false, match: [/^debt_ratio$/, /^total_debt_to_gross_book_value_ratio$/, /^total_indebtedness_ratio$/, /debt_to_normalized_ebitda_ratio/, /debt_to_.*ebitda_ratio$/] },
+    { key: 'debt_to_assets', pct: true, label: 'Debt to assets', hib: false, match: [/^total_debt_to_gross_book_value_ratio$/, /^total_indebtedness_ratio$/, /^debt_ratio$/], skipQuote: /floating|unsecured|fixed rate|secured debt/i, maxAgeDays: 550 },
     { key: 'affo_per_unit', label: 'AFFO per unit', hib: true, match: [/^affo_per_share$/, /^core_affo_per_unit$/, /^core_ffo_per_share$/, /^ffo_per_share$/] },
     { key: 'affo_growth', pct: true, label: 'AFFO growth', hib: true, match: [/^affo_change_pct$/, /^affo_change_ex_fx_per_share$/, /^core_ffo_change_pct$/, /^ffo_change_pct$/] },
     { key: 'rent_growth', pct: true, label: 'Rent growth', hib: true, match: [/^rent_per_unit_change_pct$/, /^leasing_spread$/, /^leasing_spread_pct$/] },
@@ -37,7 +37,7 @@ const LENSES = {
     { key: 'fcf_growth', pct: true, label: 'Cash flow growth', hib: true, match: [/^fcfa2s_change_pct$/, /^free_cash_flow_change_pct$/, /^operating_cash_flow_change_pct$/] },
     { key: 'margin', pct: true, label: 'Operating margin', hib: true, match: [/^adjusted_ebitda_margin$/, /^operating_income_margin$/, /^operating_margin$/, /^adjusted_adjusted_ebitda_margin$/, /^net_income_margin$/] },
     { key: 'leverage', label: 'Net debt to EBITDA', hib: false, match: [/net_debt_to_adjusted_ebitda_ratio$/, /debt_to_.*ebitda_ratio$/, /^debt_to_capitalization_ratio$/] },
-    { key: 'eps_growth', pct: true, label: 'EPS growth', hib: true, match: [/^adjusted_eps_change_pct$/, /^eps_change_pct$/] },
+    { key: 'eps_growth', pct: true, label: 'EPS growth', hib: true, match: [/^adjusted_eps_change_pct$/, /^eps_change_pct$/], maxAbs: 150 },
   ],
 };
 
@@ -99,12 +99,19 @@ export function convertProfile(j) {
     const m = metrics[mid] || {};
     // pick the period type with the most observations, so the series is consistent
     const byType = {};
-    for (const o of obs[mid]) (byType[o.p.periodType] ||= []).push(o);
+    // some companies reuse a metric name for something else (e.g. RioCan's "debt_ratio" is floating-rate share)
+    const usable = obs[mid].filter((o) => !lens.skipQuote || !lens.skipQuote.test(String((o.v.sources || [])[0]?.quote || '')));
+    if (!usable.length) continue;
+    // stale data (over ~15 months old) is not a fair comparison against peers' latest numbers
+    // one-off swings (e.g. EPS up 386% off a tiny base) distort the peer ranking
+    if (lens.maxAbs && Math.abs(usable.at(-1).v.value * (metrics[mid]?.metricFormat === '%' ? 100 : 1)) > lens.maxAbs) continue;
+    for (const o of usable) (byType[o.p.periodType] ||= []).push(o);
     const best = Object.values(byType).sort((a, b) => b.length - a.length)[0];
+    if ((Date.parse(TODAY) - Date.parse(String(best.at(-1).p.reportDate))) / 864e5 > (lens.maxAgeDays || 450)) continue;
     const pct = m.metricFormat === '%';
     const unit = pct ? '%' : /ratio/.test(mid) && !pct ? 'x' : m.isCurrency ? '$' : '';
     kpis[lens.key] = best.slice(-8).map(({ p, v }) => ({ period: periodLabel(p), value: pct ? +(v.value * 100).toFixed(2) : lens.abs ? Math.abs(v.value) : v.value, source: toSource(v, p) }));
-    meta[lens.key] = { label: lens.label, unit, higher_is_better: lens.hib, origin: m.metricName || mid };
+    meta[lens.key] = { label: lens.key === 'leverage' && unit === '%' ? 'Debt to capital' : lens.label, unit, higher_is_better: lens.hib, origin: m.metricName || mid };
   }
 
   // Deal activity from the events log: the clearest serial-acquirer signal.
