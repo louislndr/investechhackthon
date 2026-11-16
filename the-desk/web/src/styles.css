@@ -34,7 +34,7 @@ button, select, textarea { font: inherit; color: inherit; }
 .btn.quiet { background: rgba(20, 28, 42, 0.7); }
 
 /* ---------- HUD ---------- */
-.hud { position: fixed; top: 14px; left: 14px; z-index: 20; background: rgba(16, 23, 35, 0.9); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: flex; align-items: center; gap: 10px; flex-wrap: nowrap; max-width: calc(100vw - 500px); }
+.hud { position: fixed; top: 14px; left: 14px; z-index: 20; background: rgba(16, 23, 35, 0.9); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; max-width: calc(100vw - 522px); }
 .brand { margin-right: 6px; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .brand-logo { flex-shrink: 0; filter: drop-shadow(0 0 6px rgba(201,182,255,0.35)); }
 .brand-name { font-weight: 700; font-size: 22px; line-height: 1; letter-spacing: 0.01em; white-space: nowrap; }
